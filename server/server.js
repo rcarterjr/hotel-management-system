@@ -604,7 +604,6 @@ app.patch('/updateroomchange/:id', (req, res) => {
     db.query(sql, [req.body, req.body.reservationID], (err, result) => {
         if (err) throw err
         console.log(result)
-        //res.send('Customer Info updated...');
         res.status(200).json({ success: 'RoomChange Updated' })
     })
 })
@@ -656,7 +655,6 @@ app.patch('/updatehotelemployee/:id', (req, res) => {
     db.query(sql, [req.body, req.body.employeeID], (err, result) => {
         if (err) throw err
         console.log(result)
-        //res.send('Customer Info updated...');
         res.status(200).json({ success: 'HotelEmployee Updated' })
     })
 })
@@ -671,15 +669,104 @@ app.get('/deletehotelemployee/:id', (req, res) => {
 })
 // _________________________________Employee account______________________________________________
 // Create employee account
+app.post('/employeeaccount', (req, res) => {
+    let employee = {
+        SSN: req.body.SSN,
+        employeeID: req.body.employeeID,
+        username: req.body.username,
+        pword: req.body.pword,
+        clearanceLevel: req.body.clearanceLevel,
+    }
+    let sql = 'INSERT INTO EmployeeAccount SET ?'
+    db.query(sql, employee, (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).json({ success: 'EmployeeAccount Created' })
+    })
+})
 // Read employee account
+app.get('/getemployeeaccount', (req, res) => {
+    let sql = 'SELECT * FROM EmployeeAccount'
+    db.query(sql, (err, results) => {
+        if (err) throw err
+        console.log(results)
+        res.send({ results })
+    })
+})
 // Update employee account
+app.patch('/updateemployeeaccount/:id', (req, res) => {
+    let employee = {
+        SSN: req.body.SSN,
+        employeeID: req.body.employeeID,
+        username: req.body.username,
+        pword: req.body.pword,
+        clearanceLevel: req.body.clearanceLevel,
+    }
+    let sql = `UPDATE EmployeeAccount SET ? WHERE SSN = ?`
+    db.query(sql, [req.body, req.body.employeeID], (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).json({ success: 'HotelEmployee Updated' })
+    })
+})
 // Delete employee account
+app.get('/deleteemployeeaccount/:id', (req, res) => {
+    let sql = `DELETE FROM EmployeeAccount WHERE SSN = ?`
+    db.query(sql, req.params.id, (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).json({ success: 'EmployeeAccount Deleted' })
+    })
+})
+
 // _________________________________Room service______________________________________________
 // Create room service
+app.post('/roomservice', (req, res) => {
+    let roomservice = {
+        menu: req.body.menu,
+        roomNumber: req.body.roomNumber,
+        price: req.body.price,
+    }
+    let sql = 'INSERT INTO RoomService SET ?'
+    db.query(sql, roomservice, (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).json({ success: 'RoomService Created' })
+    })
+})
 // Read room service
+app.get('/getroomservice', (req, res) => {
+    let sql = 'SELECT * FROM RoomService'
+    db.query(sql, (err, results) => {
+        if (err) throw err
+        console.log(results)
+        res.send({ results })
+    })
+})
 // Update room service
+app.patch('/updateroomservice/:id', (req, res) => {
+    let roomservice = {
+        menu: req.body.menu,
+        roomNumber: req.body.roomNumber,
+        price: req.body.price,
+    }
+    let sql = `UPDATE EmployeeAccount SET ? WHERE SSN = ?`
+    db.query(sql, [req.body, req.body.menu], (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).json({ success: 'RoomService Updated' })
+    })
+})
 // Delete room service
-
+app.get('/deleteroomservice/:id', (req, res) => {
+    let sql = `DELETE FROM RoomService WHERE menu = ?`
+    db.query(sql, req.params.id, (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).json({ success: 'RoomService Deleted' })
+    })
+})
+// ________________________End of Queries________________________________________
 app.listen('3306', () => {
     console.log('Server started on Port 3306')
 })
