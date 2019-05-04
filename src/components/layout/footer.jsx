@@ -36,17 +36,15 @@ const Footer = () => {
 					<div class="col-xs-12 col-sm-8 col-md-8">
 						<h5> Our mission</h5>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat.
+							Marriott International is an American multinational diversified
+							hospitality company that manages and franchises a broad portfolio
+							of hotels and related lodging facilities. Founded by J. Willard
+							Marriott, the company is now led by his sons, Russell Carter, Seth
+							Vinson, and Lester Docker. Marriott International is the largest
+							hotel chain in the world. It has 30 brands with more than 7000
+							properties in 130 countries and territories around the world, over
+							1.2 million rooms (as of September 2017), and an additional
+							195,000 rooms in the development pipeline.
 						</p>
 					</div>
 				</div>
