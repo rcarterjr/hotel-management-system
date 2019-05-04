@@ -5,110 +5,83 @@ export default class BookOnline extends Component {
 		super(props);
 
 		this.state = {
-			// reservation
+			// __________________ Hotel__________________
+			hotelID: "", // primary key
+			hotelName: "",
+			hotel_rating: "",
+			address: "",
+			state: "",
+			city: "",
+			// __________________Hotel price__________________
+			hotelName: "", // primary key
+			hotelID: "", // foreign key
+			price: "",
+			// __________________Rooms__________________
+			roomNumber: "", // primary key
+			hotelName: "", // foreign key
+			maxPersons: "",
+			price: "",
+			// __________________Room Type__________________
+			typeOfRoom: "", // primary key
+			roomNumber: "", // foreign key
+			price: "",
+			vacancy: "",
+			// __________________Fitness Center__________________
+			machineID: "", // primary key
+			hotelID: "", // foreign key
+			machineName: "",
+			// __________________Location__________________
+			address: "", // primary key
+			hotelID: "", // foreign key
+			city: "",
+			state: "",
+			// __________________Hotel Rating__________________
+			hotelName: "", // primary key
+			hotelID: "", // foreign key
+			starRating: "",
+			// __________________Reservations__________________
+			reservationID: "", // primary key
+			roomNumber: "", // foreign key
+			currentStatus: "",
+			dateIn: "",
+			dateOut: "",
+			madeBy: "",
+			// __________________Stay Duration__________________
+			dayIn: "", // primary key
+			SSN: "", // foreign key
+			dayOut: "",
+			// __________________Customer__________________
+			SSN: "", // primary key
+			reservationID: "", // foreign key
+			firstName: "",
+			middleInitial: "",
+			lastName: "",
+			address: "",
+			phone: "",
+			city: "",
+			state: "",
+			sex: "",
+			// __________________Room Change__________________
+			reservationID: "", // primary key
+			SSN: "", // foreign key
+			roomNumber: "",
+			// __________________Hotel Employee__________________
 			firstName: "",
 			lastName: "",
-			email: "",
-			phoneNum: "",
-			hotel: "",
-			date: "",
-			Res_id: "",
-			responseSuccess: null,
-			responseDeleted: null,
-			responseUpdated: null,
-			// hotel
-			Lname: "",
-			hotel_id: "",
-			hotel_rating: "",
-			hotel_id: "",
-			responseArtSuccess: null,
-			responseArtDeleted: null,
-			responseArtUpdated: null,
-			// location
-			State: "",
-			City: "",
-			Address: "",
-			Zip: "",
-			responseLocationSuccess: null,
-			responseLocationDeleted: null,
-			responseLocationUpdated: null,
-			// Inventory
-			roomType: "",
-			Price: "",
-			Equip_id: "",
-			responseInventorySuccess: null,
-			responseInventoryDeleted: null,
-			responseInventoryUpdated: null,
-			// Manager
-			Man_id: "",
-			responseManSuccess: null,
-			responseManDeleted: null,
-			responseManUpdated: null,
-			// Manager Account
-			Uname: "",
-			Passwd: "",
-			responseManAccountSuccess: null,
-			responseManAccountDeleted: null,
-			responseManAccountUpdated: null,
-			// Customer
-			Cust_id: "",
-			Fname: "",
-			responseCustomerSuccess: null,
-			responseCustomerUpdated: null,
-			responseCustomerDeleted: null,
-			// Customer Account
-			Email: "",
-			Phone: "",
-			responseCustAccountSuccess: null,
-			responseCustAccountDeleted: null,
-			responseCustAccountUpdated: null,
-			// Merchandise
-			Merch_id: "",
-			Merch_type: "",
-			Merch_name: "",
-			Merch_price: "",
-			Merch_count: "",
-			responseMerchSuccess: null,
-			responseMerchUpdated: null,
-			responseMerchDeleted: null,
-			// Room
-			Guest_no: "",
-			Guest_type: "",
-			reponseRoomSuccess: null,
-			responseRoomUpdate: null,
-			responseRoomDelete: null,
-			// Room
-			Type: "",
-			Size: "",
-			Est_time: "",
-			responseHotelSuccess: null,
-			responseHotelUpdated: null,
-			responseHotelDeleted: null,
-			// Result
-			Result_id: "",
-			Res_type: "",
-			Res_date: "",
-			Start_time: "",
-			End_time: "",
-			responseResultSuccess: null,
-			responseResultUpdated: null,
-			responseResultDeleted: null,
-			// Waiver Policy
-			responseWaiverPolicySuccess: null,
-			responseWaiverPolicyUpdated: null,
-			responseWaiverPolicyDeleted: null,
-			// Cancellation Policy
-			Pol_id: "",
-			Pol_signed: "",
-			Pol_date: "",
-			responseCancellationPolicySuccess: null,
-			responseCancellationPolicyUpdated: null,
-			responseCancellationPolicyDeleted: null,
-			// Owner
-			Own_id: "",
-			responseShopOwnerSuccess: null,
-			responseShopOwnerUpdated: null,
-			responseShopOwnerDeleted: null
+			middleInitial: "",
+			SSN: "",
+			employeeID: "",
+			sex: null,
+			// __________________Employee Account__________________
+			SSN: "", // primary key
+			employeeID: "", // foreign key
+			username: "",
+			pword: "",
+			clearanceLevel: "",
+			// __________________Room Service__________________
+			menu: "", // primary key
+			roomNumber: "", // foreign key
+			price: "",
 		};
 	}
 
@@ -122,10 +95,10 @@ export default class BookOnline extends Component {
 	requestInfo = e => {
 		e.preventDefault();
 		const reservationBody = {
-			firstName: this.state.firstName,
-			lastName: this.state.lastName,
-			email: this.state.email,
-			phoneNum: this.state.phoneNum,
+			hotelID: this.state.hotelID,
+			hotelName: this.state.hotelName,
+			price: this.state.price,
+			starRatingNum: this.state.starRatingNum,
 			hotel: this.state.hotel,
 			resvDate: this.state.date
 		};
@@ -148,10 +121,10 @@ export default class BookOnline extends Component {
 	requestUpdate = e => {
 		e.preventDefault();
 		const reservationBody = {
-			firstName: this.state.firstName,
-			lastName: this.state.lastName,
-			email: this.state.email,
-			phoneNum: this.state.phoneNum,
+			hotelID: this.state.hotelID,
+			hotelName: this.state.hotelName,
+			price: this.state.price,
+			starRatingNum: this.state.starRatingNum,
 			hotel: this.state.hotel,
 			resvDate: this.state.date,
 			Res_id: this.state.id
@@ -198,10 +171,10 @@ export default class BookOnline extends Component {
 	requestArtInfo = e => {
 		e.preventDefault();
 		const hotelBody = {
-			hotel_id: this.state.hotel_id,
-			Fname: this.state.Fname,
-			Lname: this.state.Lname,
-			hotel_id: this.state.hotel_id,
+			hotelID: this.state.hotelID,
+			firstName: this.state.firstName,
+			hotelName: this.state.hotelName,
+			hotelID: this.state.hotelID,
 			hotel_rating: this.state.hotel_rating
 		};
 		fetch("http://localhost:4000/addhotel", {
@@ -214,7 +187,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseArtSuccess: data.success });
+				this.setState({ address: data.success });
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -223,13 +196,13 @@ export default class BookOnline extends Component {
 	requestArtUpdate = e => {
 		e.preventDefault();
 		const hotelBody = {
-			hotel_id: this.state.hotel_id,
-			Fname: this.state.Fname,
-			Lname: this.state.Lname,
-			hotel_id: this.state.hotel_id,
+			hotelID: this.state.hotelID,
+			firstName: this.state.firstName,
+			hotelName: this.state.hotelName,
+			hotelID: this.state.hotelID,
 			hotel_rating: this.state.hotel_rating
 		};
-		fetch("http://localhost:4000/updatehotel/" + this.state.hotel_id, {
+		fetch("http://localhost:4000/updatehotel/" + this.state.hotelID, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -239,7 +212,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseArtUpdated: data.success });
+				this.setState({ city: data.success });
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -247,8 +220,8 @@ export default class BookOnline extends Component {
 	// Delete hotel
 	requestArtDelete = e => {
 		e.preventDefault();
-		console.log("http://localhost:4000/deletehotel/" + this.state.hotel_id);
-		fetch("http://localhost:4000/deletehotel/" + this.state.hotel_id, {
+		console.log("http://localhost:4000/deletehotel/" + this.state.hotelID);
+		fetch("http://localhost:4000/deletehotel/" + this.state.hotelID, {
 			method: "GET",
 
 			headers: {
@@ -259,7 +232,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseArtDeleted: data.success });
+				this.setState({ state: data.success });
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -268,10 +241,10 @@ export default class BookOnline extends Component {
 	requestLocationInfo = e => {
 		e.preventDefault();
 		const locationBody = {
-			hotel_id: this.state.hotel_id,
-			State: this.state.State,
-			City: this.state.City,
-			Address: this.state.Address,
+			hotelID: this.state.hotelID,
+			roomNumber: this.state.roomNumber,
+			maxPersons: this.state.maxPersons,
+			price: this.state.price,
 			Zip: this.state.Zip
 		};
 		fetch("http://localhost:4000/addlocation", {
@@ -293,13 +266,13 @@ export default class BookOnline extends Component {
 	requestLocationUpdate = e => {
 		e.preventDefault();
 		const locationBody = {
-			hotel_id: this.state.hotel_id,
-			State: this.state.State,
-			City: this.state.City,
-			Address: this.state.Address,
+			hotelID: this.state.hotelID,
+			State: this.state.roomNumber,
+			maxPersons: this.state.maxPersons,
+			price: this.state.price,
 			Zip: this.state.Zip
 		};
-		fetch("http://localhost:4000/updatelocation/" + this.state.hotel_id, {
+		fetch("http://localhost:4000/updatelocation/" + this.state.hotelID, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -317,8 +290,8 @@ export default class BookOnline extends Component {
 	// Delete Location
 	requestLocationDelete = e => {
 		e.preventDefault();
-		console.log("http://localhost:4000/deletelocation/" + this.state.hotel_id);
-		fetch("http://localhost:4000/deletelocation/" + this.state.hotel_id, {
+		console.log("http://localhost:4000/deletelocation/" + this.state.hotelID);
+		fetch("http://localhost:4000/deletelocation/" + this.state.hotelID, {
 			method: "GET",
 
 			headers: {
@@ -338,9 +311,9 @@ export default class BookOnline extends Component {
 	requestInventoryInfo = e => {
 		e.preventDefault();
 		const inventoryBody = {
-			Equip_id: this.state.Equip_id,
-			roomType: this.state.roomType,
-			Price: this.state.Price
+			vacancy: this.state.vacancy,
+			typeOfRoom: this.state.typeOfRoom,
+			price: this.state.price
 		};
 		fetch("http://localhost:4000/addinventory", {
 			method: "POST",
@@ -361,11 +334,11 @@ export default class BookOnline extends Component {
 	requestInventoryUpdate = e => {
 		e.preventDefault();
 		const inventoryBody = {
-			Equip_id: this.state.Equip_id,
-			roomType: this.state.roomType,
-			Price: this.state.Price
+			vacancy: this.state.vacancy,
+			typeOfRoom: this.state.typeOfRoom,
+			price: this.state.price
 		};
-		fetch("http://localhost:4000/updateinventory/" + this.state.Equip_id, {
+		fetch("http://localhost:4000/updateinventory/" + this.state.vacancy, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -383,8 +356,8 @@ export default class BookOnline extends Component {
 	// delete inventory
 	requestInventoryDelete = e => {
 		e.preventDefault();
-		console.log("http://localhost:4000/deleteinventory/" + this.state.Equip_id);
-		fetch("http://localhost:4000/deleteinventory/" + this.state.Equip_id, {
+		console.log("http://localhost:4000/deleteinventory/" + this.state.vacancy);
+		fetch("http://localhost:4000/deleteinventory/" + this.state.vacancy, {
 			method: "GET",
 
 			headers: {
@@ -404,10 +377,10 @@ export default class BookOnline extends Component {
 	requestManInfo = e => {
 		e.preventDefault();
 		const managerBody = {
-			Man_id: this.state.Man_id,
-			Fname: this.state.Fname,
-			Lname: this.state.Lname,
-			hotel_id: this.state.hotel_id
+			machineName: this.state.machineName,
+			firstName: this.state.firstName,
+			hotelName: this.state.hotelName,
+			hotelID: this.state.hotelID
 		};
 		fetch("http://localhost:4000/manager", {
 			method: "POST",
@@ -419,7 +392,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseManSuccess: data.success });
+				this.setState({ machineID: data.success });
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -427,12 +400,12 @@ export default class BookOnline extends Component {
 	requestManUpdate = e => {
 		e.preventDefault();
 		const managerBody = {
-			Man_id: this.state.Man_id,
-			Fname: this.state.Fname,
-			Lname: this.state.Lname,
-			hotel_id: this.state.hotel_id
+			machineName: this.state.machineName,
+			firstName: this.state.firstName,
+			hotelName: this.state.hotelName,
+			hotelID: this.state.hotelID
 		};
-		fetch("http://localhost:4000/updatemanager/" + this.state.Man_id, {
+		fetch("http://localhost:4000/updatemanager/" + this.state.machineName, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -449,8 +422,10 @@ export default class BookOnline extends Component {
 	// Manager Deleted
 	requestManDelete = e => {
 		e.preventDefault();
-		console.log("http://localhost:4000/deletemanager/" + this.state.Man_id);
-		fetch("http://localhost:4000/deletemanager/" + this.state.Man_id, {
+		console.log(
+			"http://localhost:4000/deletemanager/" + this.state.machineName
+		);
+		fetch("http://localhost:4000/deletemanager/" + this.state.machineName, {
 			method: "GET",
 
 			headers: {
@@ -469,9 +444,9 @@ export default class BookOnline extends Component {
 	requestManAccountInfo = e => {
 		e.preventDefault();
 		const managerAccountBody = {
-			Man_id: this.state.Man_id,
-			Uname: this.state.Uname,
-			Passwd: this.state.Passwd
+			machineName: this.state.machineName,
+			address: this.state.address,
+			city: this.state.city
 		};
 		fetch("http://localhost:4000/manageraccount", {
 			method: "POST",
@@ -483,7 +458,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseManAccountSuccess: data.success });
+				this.setState({ state: data.success });
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -491,17 +466,20 @@ export default class BookOnline extends Component {
 	requestManAccountUpdate = e => {
 		e.preventDefault();
 		const managerAccountBody = {
-			Man_id: this.state.Man_id,
-			Uname: this.state.Uname,
-			Passwd: this.state.Passwd
+			machineName: this.state.machineName,
+			address: this.state.address,
+			city: this.state.city
 		};
-		fetch("http://localhost:4000/updatemanageraccount/" + this.state.Man_id, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(managerAccountBody)
-		})
+		fetch(
+			"http://localhost:4000/updatemanageraccount/" + this.state.machineName,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(managerAccountBody)
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -513,16 +491,19 @@ export default class BookOnline extends Component {
 	requestManAccountDelete = e => {
 		e.preventDefault();
 		console.log(
-			"http://localhost:4000/deletemanageraccount/" + this.state.Man_id
+			"http://localhost:4000/deletemanageraccount/" + this.state.machineName
 		);
-		fetch("http://localhost:4000/deletemanageraccount/" + this.state.Man_id, {
-			method: "GET",
+		fetch(
+			"http://localhost:4000/deletemanageraccount/" + this.state.machineName,
+			{
+				method: "GET",
 
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: undefined
-		})
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: undefined
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -534,9 +515,9 @@ export default class BookOnline extends Component {
 	requestCustomerInfo = e => {
 		e.preventDefault();
 		const customerBody = {
-			Cust_id: this.state.Cust_id,
-			Fname: this.state.Fname,
-			Lname: this.state.Lname
+			SSN: this.state.SSN,
+			firstName: this.state.firstName,
+			hotelName: this.state.hotelName
 		};
 		fetch("http://localhost:4000/customer", {
 			method: "POST",
@@ -557,11 +538,11 @@ export default class BookOnline extends Component {
 	requestCustomerUpdate = e => {
 		e.preventDefault();
 		const customerBody = {
-			Cust_id: this.state.Cust_id,
-			Fname: this.state.Fname,
-			Lname: this.state.Lname
+			SSN: this.state.SSN,
+			firstName: this.state.firstName,
+			hotelName: this.state.hotelName
 		};
-		fetch("http://localhost:4000/updatecustomer/" + this.state.Cust_id, {
+		fetch("http://localhost:4000/updatecustomer/" + this.state.SSN, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -579,8 +560,8 @@ export default class BookOnline extends Component {
 	// Delete Customer
 	requestCustomerDelete = e => {
 		e.preventDefault();
-		console.log("http://localhost:4000/deletecustomer/" + this.state.Cust_id);
-		fetch("http://localhost:4000/deletecustomer/" + this.state.Cust_id, {
+		console.log("http://localhost:4000/deletecustomer/" + this.state.SSN);
+		fetch("http://localhost:4000/deletecustomer/" + this.state.SSN, {
 			method: "GET",
 
 			headers: {
@@ -599,11 +580,11 @@ export default class BookOnline extends Component {
 	requestCustomerAccountInfo = e => {
 		e.preventDefault();
 		const customerAccountBody = {
-			Cust_id: this.state.Cust_id,
-			Uname: this.state.Uname,
-			Passwd: this.state.Passwd,
-			Email: this.state.Email,
-			Phone: this.state.Phone
+			SSN: this.state.SSN,
+			address: this.state.address,
+			city: this.state.city,
+			price: this.state.price,
+			starRating: this.state.starRating
 		};
 		fetch("http://localhost:4000/customeraccount", {
 			method: "POST",
@@ -623,13 +604,13 @@ export default class BookOnline extends Component {
 	requestCustomerAccountUpdate = e => {
 		e.preventDefault();
 		const customerAccountBody = {
-			Cust_id: this.state.Cust_id,
-			Uname: this.state.Uname,
-			Passwd: this.state.Passwd,
-			Email: this.state.Email,
-			Phone: this.state.Phone
+			SSN: this.state.SSN,
+			address: this.state.address,
+			city: this.state.city,
+			price: this.state.price,
+			starRating: this.state.starRating
 		};
-		fetch("http://localhost:4000/updatecustomeraccount/" + this.state.Cust_id, {
+		fetch("http://localhost:4000/updatecustomeraccount/" + this.state.SSN, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -647,9 +628,9 @@ export default class BookOnline extends Component {
 	requestCustomerAccountDelete = e => {
 		e.preventDefault();
 		console.log(
-			"http://localhost:4000/deletecustomeraccount/" + this.state.Cust_id
+			"http://localhost:4000/deletecustomeraccount/" + this.state.SSN
 		);
-		fetch("http://localhost:4000/deletecustomeraccount/" + this.state.Cust_id, {
+		fetch("http://localhost:4000/deletecustomeraccount/" + this.state.SSN, {
 			method: "GET",
 
 			headers: {
@@ -668,11 +649,11 @@ export default class BookOnline extends Component {
 	requestMerchandiseInfo = e => {
 		e.preventDefault();
 		const merchandiseBody = {
-			Merch_id: this.state.Merch_id,
-			Merch_type: this.state.Merch_type,
-			Merch_name: this.state.Merch_name,
-			Merch_price: this.state.Merch_price,
-			Merch_count: this.state.Merch_count
+			currentStatus: this.state.currentStatus,
+			reservationID: this.state.reservationID,
+			dateIn: this.state.dateIn,
+			dateOut: this.state.dateOut,
+			madeBy: this.state.madeBy
 		};
 		fetch("http://localhost:4000/merchandise", {
 			method: "POST",
@@ -693,19 +674,22 @@ export default class BookOnline extends Component {
 	requestMerchandiseUpdate = e => {
 		e.preventDefault();
 		const merchandiseBody = {
-			Merch_id: this.state.Merch_id,
-			Merch_type: this.state.Merch_type,
-			Merch_name: this.state.Merch_name,
-			Merch_price: this.state.Merch_price,
-			Merch_count: this.state.Merch_count
+			currentStatus: this.state.currentStatus,
+			reservationID: this.state.reservationID,
+			dateIn: this.state.dateIn,
+			dateOut: this.state.dateOut,
+			madeBy: this.state.madeBy
 		};
-		fetch("http://localhost:4000/updatemerchandise/" + this.state.Merch_id, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(merchandiseBody)
-		})
+		fetch(
+			"http://localhost:4000/updatemerchandise/" + this.state.currentStatus,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(merchandiseBody)
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -718,16 +702,19 @@ export default class BookOnline extends Component {
 	requestMerchandiseDelete = e => {
 		e.preventDefault();
 		console.log(
-			"http://localhost:4000/deletemerchandise/" + this.state.Merch_id
+			"http://localhost:4000/deletemerchandise/" + this.state.currentStatus
 		);
-		fetch("http://localhost:4000/deletemerchandise/" + this.state.Merch_id, {
-			method: "GET",
+		fetch(
+			"http://localhost:4000/deletemerchandise/" + this.state.currentStatus,
+			{
+				method: "GET",
 
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: undefined
-		})
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: undefined
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -740,11 +727,11 @@ export default class BookOnline extends Component {
 	requestRoomInfo = e => {
 		e.preventDefault();
 		const RoomBody = {
-			Guest_no: this.state.Guest_no,
-			Cust_id: this.state.Cust_id,
-			Guest_type: this.state.Guest_type,
-			Price: this.state.Price,
-			Equip_id: this.state.Equip_id
+			SSN: this.state.SSN,
+			SSN: this.state.SSN,
+			dayIn: this.state.dayIn,
+			price: this.state.price,
+			vacancy: this.state.vacancy
 		};
 		fetch("http://localhost:4000/Room", {
 			method: "POST",
@@ -765,13 +752,13 @@ export default class BookOnline extends Component {
 	requestRoomUpdate = e => {
 		e.preventDefault();
 		const RoomBody = {
-			Guest_no: this.state.Guest_no,
-			Cust_id: this.state.Cust_id,
-			Guest_type: this.state.Guest_type,
-			Price: this.state.Price,
-			Equip_id: this.state.Equip_id
+			SSN: this.state.SSN,
+			SSN: this.state.SSN,
+			dayIn: this.state.dayIn,
+			price: this.state.price,
+			vacancy: this.state.vacancy
 		};
-		fetch("http://localhost:4000/updateroom/" + this.state.Guest_no, {
+		fetch("http://localhost:4000/updateroom/" + this.state.SSN, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -789,8 +776,8 @@ export default class BookOnline extends Component {
 	// Cancel room
 	requestRoomCancellation = e => {
 		e.preventDefault();
-		console.log("http://localhost:4000/cancelroom/" + this.state.Guest_no);
-		fetch("http://localhost:4000/cancelroom/" + this.state.Guest_no, {
+		console.log("http://localhost:4000/cancelroom/" + this.state.SSN);
+		fetch("http://localhost:4000/cancelroom/" + this.state.SSN, {
 			method: "GET",
 
 			headers: {
@@ -811,12 +798,12 @@ export default class BookOnline extends Component {
 		e.preventDefault();
 		const roomObject = {
 			Tat_no: this.state.Tat_no,
-			Cust_id: this.state.Cust_id,
+			SSN: this.state.SSN,
 			Type: this.state.Type,
-			Size: this.state.Size,
-			Est_time: this.state.Est_time,
-			hotel_id: this.state.hotel_id,
-			Equip_id: this.state.Equip_id
+			roomNumber: this.state.roomNumber,
+			SSN: this.state.SSN,
+			hotelID: this.state.hotelID,
+			vacancy: this.state.vacancy
 		};
 		fetch("http://localhost:4000/room", {
 			method: "POST",
@@ -838,12 +825,12 @@ export default class BookOnline extends Component {
 		e.preventDefault();
 		const roomObject = {
 			Tat_no: this.state.Tat_no,
-			Cust_id: this.state.Cust_id,
+			SSN: this.state.SSN,
 			Type: this.state.Type,
-			Size: this.state.Size,
-			Est_time: this.state.Est_time,
-			hotel_id: this.state.hotel_id,
-			Equip_id: this.state.Equip_id
+			roomNumber: this.state.roomNumber,
+			SSN: this.state.SSN,
+			hotelID: this.state.hotelID,
+			vacancy: this.state.vacancy
 		};
 		fetch("http://localhost:4000/updateroom/" + this.state.Tat_no, {
 			method: "PATCH",
@@ -884,14 +871,14 @@ export default class BookOnline extends Component {
 	requestResultInfo = e => {
 		e.preventDefault();
 		const resultBody = {
-			Result_id: this.state.Result_id,
-			hotel_id: this.state.hotel_id,
-			Cust_id: this.state.Cust_id,
-			hotel_id: this.state.hotel_id,
-			Res_type: this.state.Res_type,
-			Res_date: this.state.Res_date,
-			Start_time: this.state.Start_time,
-			End_time: this.state.End_time
+			firstName: this.state.firstName,
+			hotelID: this.state.hotelID,
+			SSN: this.state.SSN,
+			hotelID: this.state.hotelID,
+			lastName: this.state.lastName,
+			middleInitial: this.state.middleInitial,
+			SSN: this.state.SSN,
+			employeeID: this.state.employeeID
 		};
 		fetch("http://localhost:4000/result", {
 			method: "POST",
@@ -903,7 +890,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseResultSuccess: data.success });
+				this.setState({ sex: data.success });
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -912,16 +899,16 @@ export default class BookOnline extends Component {
 	requestResultUpdate = e => {
 		e.preventDefault();
 		const resultBody = {
-			Result_id: this.state.Result_id,
-			hotel_id: this.state.hotel_id,
-			Cust_id: this.state.Cust_id,
-			hotel_id: this.state.hotel_id,
-			Res_type: this.state.Res_type,
-			Res_date: this.state.Res_date,
-			Start_time: this.state.Start_time,
-			End_time: this.state.End_time
+			firstName: this.state.firstName,
+			hotelID: this.state.hotelID,
+			SSN: this.state.SSN,
+			hotelID: this.state.hotelID,
+			lastName: this.state.lastName,
+			middleInitial: this.state.middleInitial,
+			SSN: this.state.SSN,
+			employeeID: this.state.employeeID
 		};
-		fetch("http://localhost:4000/updateresult/" + this.state.Result_id, {
+		fetch("http://localhost:4000/updateresult/" + this.state.firstName, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -939,8 +926,8 @@ export default class BookOnline extends Component {
 	// Delete Result
 	requestResultDelete = e => {
 		e.preventDefault();
-		console.log("http://localhost:4000/deleteresult/" + this.state.Result_id);
-		fetch("http://localhost:4000/deleteresult/" + this.state.Result_id, {
+		console.log("http://localhost:4000/deleteresult/" + this.state.firstName);
+		fetch("http://localhost:4000/deleteresult/" + this.state.firstName, {
 			method: "GET",
 
 			headers: {
@@ -960,10 +947,10 @@ export default class BookOnline extends Component {
 	requestWaiverPolicyInfo = e => {
 		e.preventDefault();
 		const waiver_policyBody = {
-			Pol_id: this.state.Pol_id,
-			Pol_signed: this.state.Pol_signed,
-			Pol_date: this.state.Pol_date,
-			Cust_id: this.state.Cust_id
+			menu: this.state.menu,
+			price: this.state.price,
+			roomNumber: this.state.roomNumber,
+			SSN: this.state.SSN
 		};
 		fetch("http://localhost:4000/waiverpolicy", {
 			method: "POST",
@@ -984,12 +971,12 @@ export default class BookOnline extends Component {
 	requestWaiverPolicyUpdate = e => {
 		e.preventDefault();
 		const waiver_policyBody = {
-			Pol_id: this.state.Pol_id,
-			Pol_signed: this.state.Pol_signed,
-			Pol_date: this.state.Pol_date,
-			Cust_id: this.state.Cust_id
+			menu: this.state.menu,
+			price: this.state.price,
+			roomNumber: this.state.roomNumber,
+			SSN: this.state.SSN
 		};
-		fetch("http://localhost:4000/updatewaiverpolicy/" + this.state.Pol_id, {
+		fetch("http://localhost:4000/updatewaiverpolicy/" + this.state.menu, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -1007,10 +994,8 @@ export default class BookOnline extends Component {
 	// Delete Waiver Policy
 	requestWaiverPolicyDelete = e => {
 		e.preventDefault();
-		console.log(
-			"http://localhost:4000/deletewaiverpolicy/" + this.state.Pol_id
-		);
-		fetch("http://localhost:4000/deletewaiverpolicy/" + this.state.Pol_id, {
+		console.log("http://localhost:4000/deletewaiverpolicy/" + this.state.menu);
+		fetch("http://localhost:4000/deletewaiverpolicy/" + this.state.menu, {
 			method: "GET",
 
 			headers: {
@@ -1030,10 +1015,10 @@ export default class BookOnline extends Component {
 	requestCancellationPolicyInfo = e => {
 		e.preventDefault();
 		const cancellation_policyBody = {
-			Pol_id: this.state.Pol_id,
-			Pol_signed: this.state.Pol_signed,
-			Pol_date: this.state.Pol_date,
-			Cust_id: this.state.Cust_id
+			menu: this.state.menu,
+			price: this.state.price,
+			roomNumber: this.state.roomNumber,
+			SSN: this.state.SSN
 		};
 		fetch("http://localhost:4000/addcancellationpolicy", {
 			method: "POST",
@@ -1054,21 +1039,18 @@ export default class BookOnline extends Component {
 	requestCancellationPolicyUpdate = e => {
 		e.preventDefault();
 		const cancellation_policyBody = {
-			Pol_id: this.state.Pol_id,
-			Pol_signed: this.state.Pol_signed,
-			Pol_date: this.state.Pol_date,
-			Cust_id: this.state.Cust_id
+			menu: this.state.menu,
+			price: this.state.price,
+			roomNumber: this.state.roomNumber,
+			SSN: this.state.SSN
 		};
-		fetch(
-			"http://localhost:4000/updatecancellationpolicy/" + this.state.Pol_id,
-			{
-				method: "PATCH",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify(cancellation_policyBody)
-			}
-		)
+		fetch("http://localhost:4000/updatecancellationpolicy/" + this.state.menu, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(cancellation_policyBody)
+		})
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -1081,19 +1063,16 @@ export default class BookOnline extends Component {
 	requestCancellationPolicyDelete = e => {
 		e.preventDefault();
 		console.log(
-			"http://localhost:4000/deletecancellationpolicy/" + this.state.Pol_id
+			"http://localhost:4000/deletecancellationpolicy/" + this.state.menu
 		);
-		fetch(
-			"http://localhost:4000/deletecancellationpolicy/" + this.state.Pol_id,
-			{
-				method: "GET",
+		fetch("http://localhost:4000/deletecancellationpolicy/" + this.state.menu, {
+			method: "GET",
 
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: undefined
-			}
-		)
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -1107,9 +1086,9 @@ export default class BookOnline extends Component {
 		e.preventDefault();
 		const shop_ownerBody = {
 			Own_id: this.state.Own_id,
-			Fname: this.state.Fname,
-			Lname: this.state.Lname,
-			hotel_id: this.state.hotel_id
+			firstName: this.state.firstName,
+			hotelName: this.state.hotelName,
+			hotelID: this.state.hotelID
 		};
 		fetch("http://localhost:4000/addshopowner", {
 			method: "POST",
@@ -1131,9 +1110,9 @@ export default class BookOnline extends Component {
 		e.preventDefault();
 		const shop_ownerBody = {
 			Own_id: this.state.Own_id,
-			Fname: this.state.Fname,
-			Lname: this.state.Lname,
-			hotel_id: this.state.hotel_id
+			firstName: this.state.firstName,
+			hotelName: this.state.hotelName,
+			hotelID: this.state.hotelID
 		};
 		fetch("http://localhost:4000/updateshopowner/" + this.state.Own_id, {
 			method: "PATCH",
@@ -1183,8 +1162,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="firstName"
-										id="firstName"
+										name="hotelID"
+										id="hotelID"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -1194,8 +1173,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="lastName"
-										id="lastName"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -1204,10 +1183,10 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="email"
-										name="email"
-										id="email"
-										placeholder="Email Address"
+										type="price"
+										name="price"
+										id="price"
+										placeholder="price Address"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -1216,8 +1195,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="tel"
-										name="phoneNum"
-										id="phone"
+										name="starRatingNum"
+										id="starRating"
 										placeholder="###-###-####"
 										maxLength="12"
 										className="form-control input-lg"
@@ -1291,8 +1270,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="firstName"
-										id="firstName"
+										name="hotelID"
+										id="hotelID"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -1302,8 +1281,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="lastName"
-										id="lastName"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -1312,10 +1291,10 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="email"
-										name="email"
-										id="email"
-										placeholder="Email Address"
+										type="price"
+										name="price"
+										id="price"
+										placeholder="price Address"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -1324,8 +1303,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="tel"
-										name="phoneNum"
-										id="phone"
+										name="starRatingNum"
+										id="starRating"
 										placeholder="###-###-####"
 										maxLength="12"
 										className="form-control input-lg"
@@ -1417,8 +1396,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										placeholder="Enter #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -1429,8 +1408,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Fname"
-										id="Fname"
+										name="firstName"
+										id="firstName"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -1440,8 +1419,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Lname"
-										id="Lname"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -1449,11 +1428,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -1480,7 +1459,7 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Create hotel
 								</button>
-								<h1>{this.state.responseArtSuccess}</h1>
+								<h1>{this.state.address}</h1>
 							</form>
 						</div>
 					</div>
@@ -1496,8 +1475,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										placeholder="Enter #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -1508,8 +1487,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Fname"
-										id="Fname"
+										name="firstName"
+										id="firstName"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -1519,8 +1498,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Lname"
-										id="Lname"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -1528,11 +1507,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -1559,7 +1538,7 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Update hotel
 								</button>
-								<h1>{this.state.responseArtUpdated}</h1>
+								<h1>{this.state.city}</h1>
 							</form>
 						</div>
 					</div>
@@ -1576,8 +1555,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="hotel">hotel ID</label>
 									<input
 										type="number"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										placeholder="hotel ID"
 										className="form-control input-lg"
 										required
@@ -1587,7 +1566,7 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Delete hotel
 								</button>
-								<h1>{this.state.responseArtDeleted}</h1>
+								<h1>{this.state.state}</h1>
 							</form>
 						</div>
 					</div>
@@ -1603,8 +1582,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										placeholder="Enter #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -1728,8 +1707,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										placeholder="Enter #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -1854,8 +1833,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Location">SHOP ID</label>
 									<input
 										type="number"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										placeholder="Shop ID"
 										className="form-control input-lg"
 										required
@@ -1881,8 +1860,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Equip_id"
-										id="Equip_id"
+										name="vacancy"
+										id="vacancy"
 										placeholder="Enter #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -1893,8 +1872,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="roomType"
-										id="roomType"
+										name="typeOfRoom"
+										id="typeOfRoom"
 										placeholder="Equipment Name"
 										className="form-control input-lg"
 										required
@@ -1904,9 +1883,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Price"
-										id="Price"
-										placeholder="Price"
+										name="price"
+										id="price"
+										placeholder="price"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -1931,8 +1910,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Equip_id"
-										id="Equip_id"
+										name="vacancy"
+										id="vacancy"
 										placeholder="Enter #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -1943,8 +1922,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="roomType"
-										id="roomType"
+										name="typeOfRoom"
+										id="typeOfRoom"
 										placeholder="Equipment Name"
 										className="form-control input-lg"
 										required
@@ -1954,9 +1933,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Price"
-										id="Price"
-										placeholder="Price"
+										name="price"
+										id="price"
+										placeholder="price"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -1982,8 +1961,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Inventory">Equipment ID</label>
 									<input
 										type="number"
-										name="Equip_id"
-										id="Equip_id"
+										name="vacancy"
+										id="vacancy"
 										placeholder="Equipment ID"
 										className="form-control input-lg"
 										required
@@ -2009,8 +1988,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Man_id"
-										id="Man_id"
+										name="machineName"
+										id="machineName"
 										placeholder="Enter Manager ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2021,8 +2000,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Fname"
-										id="Fname"
+										name="firstName"
+										id="firstName"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -2032,8 +2011,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Lname"
-										id="Lname"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -2041,11 +2020,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -2058,7 +2037,7 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Add Manager
 								</button>
-								<h1>{this.state.responseManSuccess}</h1>
+								<h1>{this.state.machineID}</h1>
 							</form>
 						</div>
 					</div>
@@ -2073,8 +2052,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Man_id"
-										id="Man_id"
+										name="machineName"
+										id="machineName"
 										placeholder="Enter ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2085,8 +2064,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Fname"
-										id="Fname"
+										name="firstName"
+										id="firstName"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -2096,8 +2075,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Lname"
-										id="Lname"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -2105,11 +2084,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -2138,8 +2117,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Manager">MANAGER ID</label>
 									<input
 										type="number"
-										name="Man_id"
-										id="Man_id"
+										name="machineName"
+										id="machineName"
 										placeholder="Manager ID"
 										className="form-control input-lg"
 										required
@@ -2164,8 +2143,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Man_id"
-										id="Man_id"
+										name="machineName"
+										id="machineName"
 										placeholder="Enter Manager ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2176,8 +2155,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Uname"
-										id="Uname"
+										name="address"
+										id="address"
 										placeholder="Username"
 										className="form-control input-lg"
 										required
@@ -2187,8 +2166,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="password"
-										name="Passwd"
-										id="Passwd"
+										name="city"
+										id="city"
 										placeholder="Password"
 										className="form-control input-lg"
 										required
@@ -2198,7 +2177,7 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Add Manager
 								</button>
-								<h1>{this.state.responseManAccountSuccess}</h1>
+								<h1>{this.state.state}</h1>
 							</form>
 						</div>
 					</div>
@@ -2213,8 +2192,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Man_id"
-										id="Man_id"
+										name="machineName"
+										id="machineName"
 										placeholder="Enter ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2225,8 +2204,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Uname"
-										id="Uname"
+										name="address"
+										id="address"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -2236,8 +2215,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="password"
-										name="Passwd"
-										id="Passwd"
+										name="city"
+										id="city"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -2263,8 +2242,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Manager">MANAGER ID</label>
 									<input
 										type="number"
-										name="Man_id"
-										id="Man_id"
+										name="machineName"
+										id="machineName"
 										placeholder="Manager ID"
 										className="form-control input-lg"
 										required
@@ -2289,8 +2268,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Customer ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2301,8 +2280,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Fname"
-										id="Fname"
+										name="firstName"
+										id="firstName"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -2312,8 +2291,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Lname"
-										id="Lname"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -2338,8 +2317,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2350,8 +2329,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Fname"
-										id="Fname"
+										name="firstName"
+										id="firstName"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -2361,8 +2340,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Lname"
-										id="Lname"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -2388,8 +2367,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Customer">CUSTOMER ID</label>
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Customer ID"
 										className="form-control input-lg"
 										required
@@ -2414,8 +2393,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Customer ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2425,9 +2404,9 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="email"
-										name="Email"
-										id="Email"
+										type="price"
+										name="price"
+										id="price"
 										placeholder="you@example.com"
 										className="form-control input-lg"
 										required
@@ -2437,9 +2416,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Phone"
-										id="Phone"
-										placeholder="Phone Number"
+										name="starRating"
+										id="starRating"
+										placeholder="starRating Number"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -2448,8 +2427,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Uname"
-										id="Uname"
+										name="address"
+										id="address"
 										placeholder="Username"
 										className="form-control input-lg"
 										required
@@ -2459,8 +2438,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="password"
-										name="Passwd"
-										id="Passwd"
+										name="city"
+										id="city"
 										placeholder="Password"
 										className="form-control input-lg"
 										required
@@ -2485,8 +2464,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2496,9 +2475,9 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="email"
-										name="Email"
-										id="Email"
+										type="price"
+										name="price"
+										id="price"
 										placeholder="you@example.com"
 										className="form-control input-lg"
 										required
@@ -2508,9 +2487,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Phone"
-										id="Phone"
-										placeholder="Phone Number"
+										name="starRating"
+										id="starRating"
+										placeholder="starRating Number"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -2519,8 +2498,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Uname"
-										id="Uname"
+										name="address"
+										id="address"
 										placeholder="Username"
 										className="form-control input-lg"
 										required
@@ -2530,8 +2509,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="password"
-										name="Passwd"
-										id="Passwd"
+										name="city"
+										id="city"
 										placeholder="Password"
 										className="form-control input-lg"
 										required
@@ -2557,8 +2536,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Customer">CUSTOMER ID</label>
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Customer ID"
 										className="form-control input-lg"
 										required
@@ -2583,8 +2562,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Merch_id"
-										id="Merch_id"
+										name="currentStatus"
+										id="currentStatus"
 										placeholder="Enter #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2595,8 +2574,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Merch_type"
-										id="Merch_type"
+										name="reservationID"
+										id="reservationID"
 										placeholder="Type of Merchandise"
 										className="form-control input-lg"
 										required
@@ -2606,8 +2585,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Merch_name"
-										id="Merch_name"
+										name="dateIn"
+										id="dateIn"
 										placeholder="Name of Merchandise"
 										className="form-control input-lg"
 										required
@@ -2617,9 +2596,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Merch_price"
-										id="Merch_price"
-										placeholder="Price"
+										name="dateOut"
+										id="dateOut"
+										placeholder="price"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -2628,8 +2607,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Merch_count"
-										id="Merch_count"
+										name="madeBy"
+										id="madeBy"
 										placeholder="Current stock"
 										className="form-control input-lg"
 										required
@@ -2655,8 +2634,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Merch_id"
-										id="Merch_id"
+										name="currentStatus"
+										id="currentStatus"
 										placeholder="Enter #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2667,8 +2646,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Merch_type"
-										id="Merch_type"
+										name="reservationID"
+										id="reservationID"
 										placeholder="Type of Merchandise"
 										className="form-control input-lg"
 										required
@@ -2678,8 +2657,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Merch_name"
-										id="Merch_name"
+										name="dateIn"
+										id="dateIn"
 										placeholder="Name of Merchandise"
 										className="form-control input-lg"
 										required
@@ -2689,9 +2668,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Merch_price"
-										id="Merch_price"
-										placeholder="Price"
+										name="dateOut"
+										id="dateOut"
+										placeholder="price"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -2700,8 +2679,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Merch_count"
-										id="Merch_count"
+										name="madeBy"
+										id="madeBy"
 										placeholder="Current stock"
 										className="form-control input-lg"
 										required
@@ -2728,8 +2707,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Inventory">Merchandise ID</label>
 									<input
 										type="number"
-										name="Merch_id"
-										id="Merch_id"
+										name="currentStatus"
+										id="currentStatus"
 										placeholder="Merchandise ID"
 										className="form-control input-lg"
 										required
@@ -2755,8 +2734,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Guest_no"
-										id="Guest_no"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Room #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2767,8 +2746,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Cust #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2779,8 +2758,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Guest_type"
-										id="Guest_type"
+										name="dayIn"
+										id="dayIn"
 										placeholder="Enter Room Type #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2791,9 +2770,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Price"
-										id="Price"
-										placeholder="Enter Price"
+										name="price"
+										id="price"
+										placeholder="Enter price"
 										maxLength="12"
 										className="form-control input-lg"
 										required
@@ -2803,8 +2782,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Equip_id"
-										id="Equip_id"
+										name="vacancy"
+										id="vacancy"
 										placeholder="Equipment ID"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2831,8 +2810,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Guest_no"
-										id="Guest_no"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Room #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2843,8 +2822,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Cust #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2855,8 +2834,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Guest_type"
-										id="Guest_type"
+										name="dayIn"
+										id="dayIn"
 										placeholder="Enter Room Type #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2867,9 +2846,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Price"
-										id="Price"
-										placeholder="Enter Price"
+										name="price"
+										id="price"
+										placeholder="Enter price"
 										maxLength="12"
 										className="form-control input-lg"
 										required
@@ -2879,8 +2858,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Equip_id"
-										id="Equip_id"
+										name="vacancy"
+										id="vacancy"
 										placeholder="Equipment ID"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2908,8 +2887,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Inventory">Room No</label>
 									<input
 										type="number"
-										name="Guest_no"
-										id="Guest_no"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Room Number"
 										className="form-control input-lg"
 										required
@@ -2947,8 +2926,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Cust #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2971,9 +2950,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Size"
-										id="Size"
-										placeholder="Enter Size #"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Enter roomNumber #"
 										maxLength="12"
 										className="form-control input-lg"
 										required
@@ -2983,8 +2962,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Est_time"
-										id="Est_time"
+										name="SSN"
+										id="SSN"
 										placeholder="EST # of hours"
 										maxLength="12"
 										className="form-control input-lg"
@@ -2993,11 +2972,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -3010,8 +2989,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Equip_id"
-										id="Equip_id"
+										name="vacancy"
+										id="vacancy"
 										placeholder="Equipment ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3050,8 +3029,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Cust #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3074,9 +3053,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Size"
-										id="Size"
-										placeholder="Enter Size #"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Enter roomNumber #"
 										maxLength="12"
 										className="form-control input-lg"
 										required
@@ -3086,8 +3065,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Est_time"
-										id="Est_time"
+										name="SSN"
+										id="SSN"
 										placeholder="EST # of hours"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3096,11 +3075,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -3113,8 +3092,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Equip_id"
-										id="Equip_id"
+										name="vacancy"
+										id="vacancy"
 										placeholder="Equipment ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3169,8 +3148,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Result_id"
-										id="Result_id"
+										name="firstName"
+										id="firstName"
 										placeholder="Enter Result #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3179,11 +3158,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -3196,8 +3175,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Cust #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3208,8 +3187,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										placeholder="Enter hotel #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3218,11 +3197,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Res_type">Reservation Type</label>
+									<label htmlFor="lastName">Reservation Type</label>
 									<select
 										className="form-control input-lg"
-										name="Res_type"
-										id="Res_type"
+										name="lastName"
+										id="lastName"
 										required
 										onChange={this.handleChange}
 									>
@@ -3232,11 +3211,11 @@ export default class BookOnline extends Component {
 									</select>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Res_date">Reservation Date</label>
+									<label htmlFor="middleInitial">Reservation Date</label>
 									<input
 										type="Date"
-										name="Res_date"
-										id="Res_date"
+										name="middleInitial"
+										id="middleInitial"
 										placeholder="MM/DD/YYYY"
 										maxLength="10"
 										className="form-control input-lg"
@@ -3245,22 +3224,22 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Start_time">Start Time</label>
+									<label htmlFor="SSN">Start Time</label>
 									<input
 										type="time"
-										name="Start_time"
-										id="Start_time"
+										name="SSN"
+										id="SSN"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="End_time">End Time</label>
+									<label htmlFor="employeeID">End Time</label>
 									<input
 										type="time"
-										name="End_time"
-										id="End_time"
+										name="employeeID"
+										id="employeeID"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -3269,7 +3248,7 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Create Result
 								</button>
-								<h1>{this.state.responseResultSuccess}</h1>
+								<h1>{this.state.sex}</h1>
 							</form>
 						</div>
 					</div>
@@ -3285,8 +3264,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Result_id"
-										id="Result_id"
+										name="firstName"
+										id="firstName"
 										placeholder="Enter Result #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3295,11 +3274,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -3312,8 +3291,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Enter Cust #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3324,8 +3303,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										placeholder="Enter hotel #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3334,11 +3313,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Res_type">Reservation Type</label>
+									<label htmlFor="lastName">Reservation Type</label>
 									<select
 										className="form-control input-lg"
-										name="Res_type"
-										id="Res_type"
+										name="lastName"
+										id="lastName"
 										required
 										onChange={this.handleChange}
 									>
@@ -3348,11 +3327,11 @@ export default class BookOnline extends Component {
 									</select>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Res_date">Reservation Date</label>
+									<label htmlFor="middleInitial">Reservation Date</label>
 									<input
 										type="Date"
-										name="Res_date"
-										id="Res_date"
+										name="middleInitial"
+										id="middleInitial"
 										placeholder="MM/DD/YYYY"
 										maxLength="10"
 										className="form-control input-lg"
@@ -3361,22 +3340,22 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Start_time">Start Time</label>
+									<label htmlFor="SSN">Start Time</label>
 									<input
 										type="time"
-										name="Start_time"
-										id="Start_time"
+										name="SSN"
+										id="SSN"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="End_time">End Time</label>
+									<label htmlFor="employeeID">End Time</label>
 									<input
 										type="time"
-										name="End_time"
-										id="End_time"
+										name="employeeID"
+										id="employeeID"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -3402,8 +3381,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Result">Result ID</label>
 									<input
 										type="number"
-										name="Result_id"
-										id="Result_id"
+										name="firstName"
+										id="firstName"
 										placeholder="Enter Result ID"
 										className="form-control input-lg"
 										required
@@ -3429,8 +3408,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Pol_id"
-										id="Pol_id"
+										name="menu"
+										id="menu"
 										placeholder="Enter Policy #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3441,8 +3420,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Pol_signed"
-										id="Pol_signed"
+										name="price"
+										id="price"
 										placeholder="Policy Sign #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3451,11 +3430,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Res_date">Policy Date</label>
+									<label htmlFor="middleInitial">Policy Date</label>
 									<input
 										type="date"
-										name="Pol_date"
-										id="Pol_date"
+										name="roomNumber"
+										id="roomNumber"
 										placeholder="MM/DD/YYYY"
 										maxLength="10"
 										className="form-control input-lg"
@@ -3466,8 +3445,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Cust ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3494,8 +3473,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Pol_id"
-										id="Pol_id"
+										name="menu"
+										id="menu"
 										placeholder="Enter Policy #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3506,8 +3485,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Pol_signed"
-										id="Pol_signed"
+										name="price"
+										id="price"
 										placeholder="Policy Sign #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3516,11 +3495,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Res_date">Policy Date</label>
+									<label htmlFor="middleInitial">Policy Date</label>
 									<input
 										type="date"
-										name="Pol_date"
-										id="Pol_date"
+										name="roomNumber"
+										id="roomNumber"
 										placeholder="MM/DD/YYYY"
 										maxLength="10"
 										className="form-control input-lg"
@@ -3531,8 +3510,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Cust ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3560,8 +3539,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Result">Policy ID</label>
 									<input
 										type="number"
-										name="Pol_id"
-										id="Pol_id"
+										name="menu"
+										id="menu"
 										placeholder="Enter Result ID"
 										className="form-control input-lg"
 										required
@@ -3587,8 +3566,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Pol_id"
-										id="Pol_id"
+										name="menu"
+										id="menu"
 										placeholder="Enter Policy #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3599,8 +3578,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Pol_signed"
-										id="Pol_signed"
+										name="price"
+										id="price"
 										placeholder="Policy Sign #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3609,11 +3588,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Res_date">Policy Date</label>
+									<label htmlFor="middleInitial">Policy Date</label>
 									<input
 										type="date"
-										name="Pol_date"
-										id="Pol_date"
+										name="roomNumber"
+										id="roomNumber"
 										placeholder="MM/DD/YYYY"
 										maxLength="10"
 										className="form-control input-lg"
@@ -3624,8 +3603,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Cust ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3652,8 +3631,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Pol_id"
-										id="Pol_id"
+										name="menu"
+										id="menu"
 										placeholder="Enter Policy #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3664,8 +3643,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Pol_signed"
-										id="Pol_signed"
+										name="price"
+										id="price"
 										placeholder="Policy Sign #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3674,11 +3653,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="Res_date">Policy Date</label>
+									<label htmlFor="middleInitial">Policy Date</label>
 									<input
 										type="date"
-										name="Pol_date"
-										id="Pol_date"
+										name="roomNumber"
+										id="roomNumber"
 										placeholder="MM/DD/YYYY"
 										maxLength="10"
 										className="form-control input-lg"
@@ -3689,8 +3668,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="number"
-										name="Cust_id"
-										id="Cust_id"
+										name="SSN"
+										id="SSN"
 										placeholder="Cust ID #"
 										maxLength="12"
 										className="form-control input-lg"
@@ -3718,8 +3697,8 @@ export default class BookOnline extends Component {
 									<label htmlFor="Result">Policy ID</label>
 									<input
 										type="number"
-										name="Pol_id"
-										id="Pol_id"
+										name="menu"
+										id="menu"
 										placeholder="Enter Result ID"
 										className="form-control input-lg"
 										required
@@ -3757,8 +3736,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Fname"
-										id="Fname"
+										name="firstName"
+										id="firstName"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -3768,8 +3747,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Lname"
-										id="Lname"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -3777,11 +3756,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
@@ -3822,8 +3801,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Fname"
-										id="Fname"
+										name="firstName"
+										id="firstName"
 										placeholder="First Name"
 										className="form-control input-lg"
 										required
@@ -3833,8 +3812,8 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="Lname"
-										id="Lname"
+										name="hotelName"
+										id="hotelName"
 										placeholder="Last Name"
 										className="form-control input-lg"
 										required
@@ -3842,11 +3821,11 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotel_id">hotel_id</label>
+									<label htmlFor="hotelID">hotelID</label>
 									<select
 										className="form-control input-lg"
-										name="hotel_id"
-										id="hotel_id"
+										name="hotelID"
+										id="hotelID"
 										required
 										onChange={this.handleChange}
 									>
