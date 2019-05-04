@@ -66,12 +66,12 @@ export default class BookOnline extends Component {
 			SSN: "", // foreign key
 			roomNumber: "",
 			// __________________Hotel Employee__________________
+			employeeID: "", // primary key
 			firstName: "",
 			lastName: "",
 			middleInitial: "",
 			SSN: "",
-			employeeID: "",
-			sex: null,
+			sex: "",
 			// __________________Employee Account__________________
 			SSN: "", // primary key
 			employeeID: "", // foreign key

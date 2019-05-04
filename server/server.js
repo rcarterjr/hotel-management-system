@@ -619,9 +619,56 @@ app.get('/deleteroomchange/:id', (req, res) => {
 })
 // _________________________________Hotel employee______________________________________________
 // Create hotel employee
+app.post('/hotelemployee', (req, res) => {
+    let employee = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        SSN: req.body.SSN,
+        employeeID: req.body.employeeID,
+        sex: req.body.sex,
+    }
+    let sql = 'INSERT INTO HotelEmployee SET ?'
+    db.query(sql, employee, (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).json({ success: 'HotelEmployee Created' })
+    })
+})
 // Read hotel employee
+app.get('/gethotelemployee', (req, res) => {
+    let sql = 'SELECT * FROM HotelEmployee'
+    db.query(sql, (err, results) => {
+        if (err) throw err
+        console.log(results)
+        res.send({ results })
+    })
+})
 // Update hotel employee
+app.patch('/updatehotelemployee/:id', (req, res) => {
+    let employee = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        SSN: req.body.SSN,
+        employeeID: req.body.employeeID,
+        sex: req.body.sex,
+    }
+    let sql = `UPDATE HotelEmployee SET ? WHERE employeeID = ?`
+    db.query(sql, [req.body, req.body.employeeID], (err, result) => {
+        if (err) throw err
+        console.log(result)
+        //res.send('Customer Info updated...');
+        res.status(200).json({ success: 'HotelEmployee Updated' })
+    })
+})
 // Delete hotel employee
+app.get('/deletehotelemployee/:id', (req, res) => {
+    let sql = `DELETE FROM HotelEmployee WHERE employeeID = ?`
+    db.query(sql, req.params.id, (err, result) => {
+        if (err) throw err
+        console.log(result)
+        res.status(200).json({ success: 'HotelEmployee Deleted' })
+    })
+})
 // _________________________________Employee account______________________________________________
 // Create employee account
 // Read employee account
