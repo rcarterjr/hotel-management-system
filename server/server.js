@@ -198,7 +198,7 @@ app.get('/deleteroom/:roomNumber', (req, res) => {
 })
 // __________________________Room type_______________________________________________
 // Create room type
-app.post('/roomtype', (req, res) => {
+app.post('/addroomtype', (req, res) => {
     let roomType = {
         typeOfRoom: req.body.typeOfRoom,
         roomNumber: req.body.roomNumber,
@@ -252,7 +252,7 @@ app.get('/deleteroomtype/:typeOfRoom', (req, res) => {
 
 // ___________________________Fitness center__________________________________________
 // Create fitness center
-app.post('/fitnesscenter', (req, res) => {
+app.post('/addfitnesscenter', (req, res) => {
     let fitnessCenter = {
         machineID: req.body.machineID,
         hotelID: req.body.hotelID,
@@ -353,7 +353,7 @@ app.get('/deletelocation/:address', (req, res) => {
 })
 // ______________________________Hotel rating____________________________________________
 // Create hotel rating
-app.post('/hotelrating', (req, res) => {
+app.post('/addhotelrating', (req, res) => {
     let hotelRating = {
         hotelName: req.body.hotelName,
         hotelID: req.body.hotelID,
@@ -403,7 +403,7 @@ app.get('/deletehotelrating/:id', (req, res) => {
 
 //_______________________________Reservations____________________________________________
 // Create reservations
-app.post('/reservations', (req, res) => {
+app.post('/addreservations', (req, res) => {
     let reservation = {
         reservationID: req.body.reservationID,
         roomNumber: req.body.roomNumber,
@@ -458,7 +458,7 @@ app.get('/deletereservation/:id', (req, res) => {
 })
 // _______________________________Stay duration___________________________________________
 // Create stay duration
-app.post('/stayduration', (req, res) => {
+app.post('/addstayduration', (req, res) => {
     let stay = {
         dayIn: req.body.dayIn,
         SSN: req.body.SSN,
@@ -507,7 +507,7 @@ app.get('/deletestayduration/:id', (req, res) => {
 })
 // _________________________________Customer______________________________________________
 // Create customer
-app.post('/customer', (req, res) => {
+app.post('/addcustomer', (req, res) => {
     let customer = {
         SSN: req.body.SSN,
         reservationID: req.body.reservationID,
@@ -571,7 +571,7 @@ app.get('/deletecustomer/:id', (req, res) => {
 })
 // _________________________________Room change______________________________________________
 // Create room change
-app.post('/roomchange', (req, res) => {
+app.post('/addroomchange', (req, res) => {
     let roomchange = {
         reservationID: req.body.reservationID,
         SSN: req.body.SSN,
@@ -618,7 +618,7 @@ app.get('/deleteroomchange/:id', (req, res) => {
 })
 // _________________________________Hotel employee______________________________________________
 // Create hotel employee
-app.post('/hotelemployee', (req, res) => {
+app.post('/addhotelemployee', (req, res) => {
     let employee = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -669,7 +669,7 @@ app.get('/deletehotelemployee/:id', (req, res) => {
 })
 // _________________________________Employee account______________________________________________
 // Create employee account
-app.post('/employeeaccount', (req, res) => {
+app.post('/addemployeeaccount', (req, res) => {
     let employee = {
         SSN: req.body.SSN,
         employeeID: req.body.employeeID,
@@ -721,7 +721,7 @@ app.get('/deleteemployeeaccount/:id', (req, res) => {
 
 // _________________________________Room service______________________________________________
 // Create room service
-app.post('/roomservice', (req, res) => {
+app.post('/addroomservice', (req, res) => {
     let roomservice = {
         menu: req.body.menu,
         roomNumber: req.body.roomNumber,
