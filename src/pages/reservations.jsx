@@ -101,7 +101,7 @@ export default class BookOnline extends Component {
 			hotelRating: this.state.hotelRating,
 			address: this.state.address,
 			state: this.state.state,
-			city: this.state.city,
+			city: this.state.city
 		};
 		fetch("http://localhost:4000/addhotel", {
 			method: "POST",
@@ -113,7 +113,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -127,7 +126,7 @@ export default class BookOnline extends Component {
 			hotelRating: this.state.hotelRating,
 			address: this.state.address,
 			state: this.state.state,
-			city: this.state.city,
+			city: this.state.city
 		};
 		fetch("http://localhost:4000/updatehotel/" + this.state.hotelID, {
 			method: "PATCH",
@@ -143,7 +142,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Hotel
-	requestDeleteHotel = e => {
+	handleDeleteHotel = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deletehotel/" + this.state.hotelId, {
@@ -156,7 +155,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -179,7 +177,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -190,7 +187,7 @@ export default class BookOnline extends Component {
 		const price = {
 			hotelID: this.state.hotelID,
 			hotelName: this.state.hotelName,
-			hotelRating: this.state.hotelRating,
+			hotelRating: this.state.hotelRating
 		};
 		fetch("http://localhost:4000/updatehotelprice/" + this.state.hotelID, {
 			method: "PATCH",
@@ -206,7 +203,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Hotel Price
-	requestDeleteHotelPrice = e => {
+	handleDeleteHotelPrice = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deletehotelprice/" + this.state.hotelId, {
@@ -219,7 +216,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -243,7 +239,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -255,7 +250,7 @@ export default class BookOnline extends Component {
 			roomNumber: this.state.roomNumber,
 			hotelName: this.state.hotelName,
 			maxPersons: this.state.maxPersons,
-			price: this.state.price,
+			price: this.state.price
 		};
 		fetch("http://localhost:4000/updaterooms/" + this.state.roomNumber, {
 			method: "PATCH",
@@ -271,7 +266,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Rooms
-	requestDeleteRoom = e => {
+	handleDeleteRoom = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deleteroom/" + this.state.roomNumber, {
@@ -284,7 +279,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -296,7 +290,7 @@ export default class BookOnline extends Component {
 			typeOfRoom: this.state.typeOfRoom,
 			roomNumber: this.state.roomNumber,
 			price: this.state.price,
-			vacancy: this.state.vacancy,
+			vacancy: this.state.vacancy
 		};
 		fetch("http://localhost:4000/addroomtype", {
 			method: "POST",
@@ -308,7 +302,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -320,7 +313,7 @@ export default class BookOnline extends Component {
 			typeOfRoom: this.state.typeOfRoom,
 			roomNumber: this.state.roomNumber,
 			price: this.state.price,
-			vacancy: this.state.vacancy,
+			vacancy: this.state.vacancy
 		};
 		fetch("http://localhost:4000/updateroomtype/" + this.state.typeOfRoom, {
 			method: "PATCH",
@@ -336,7 +329,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Room Type
-	requestDeleteRoomType = e => {
+	handleDeleteRoomType = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deleteroomtype/" + this.state.typeOfRoom, {
@@ -349,7 +342,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -372,7 +364,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -383,7 +374,7 @@ export default class BookOnline extends Component {
 		const fitnessCenter = {
 			machineID: this.state.machineID,
 			hotelID: this.state.hotelID,
-			machineName: this.state.machineName,
+			machineName: this.state.machineName
 		};
 		fetch("http://localhost:4000/updatefitnesscenter/" + this.state.machineID, {
 			method: "PATCH",
@@ -399,7 +390,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Fitness Center
-	requestDeleteFitnessCenter = e => {
+	handleDeleteFitnessCenter = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deletefitnesscenter/" + this.state.machineID, {
@@ -412,7 +403,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -424,7 +414,7 @@ export default class BookOnline extends Component {
 			address: this.state.address,
 			hotelID: this.state.hotelID,
 			city: this.state.city,
-			state: this.state.state,
+			state: this.state.state
 		};
 		fetch("http://localhost:4000/addlocation", {
 			method: "POST",
@@ -436,7 +426,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -448,7 +437,7 @@ export default class BookOnline extends Component {
 			address: this.state.address,
 			hotelID: this.state.hotelID,
 			city: this.state.city,
-			state: this.state.state,
+			state: this.state.state
 		};
 		fetch("http://localhost:4000/updatelocation/" + this.state.address, {
 			method: "PATCH",
@@ -464,7 +453,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Location
-	requestDeleteLocation = e => {
+	handleDeleteLocation = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deletelocation/" + this.state.address, {
@@ -477,7 +466,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -500,7 +488,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -511,7 +498,7 @@ export default class BookOnline extends Component {
 		const rating = {
 			hotelID: this.state.hotelID,
 			hotelName: this.state.hotelName,
-			starRating: this.state.starRating,
+			starRating: this.state.starRating
 		};
 		fetch("http://localhost:4000/updatehotelrating/" + this.state.hotelName, {
 			method: "PATCH",
@@ -527,7 +514,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Hotel Rating
-	requestDeleteHotelRating = e => {
+	handleDeleteHotelRating = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deletehotelrating/" + this.state.hotelName, {
@@ -540,7 +527,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -554,7 +540,7 @@ export default class BookOnline extends Component {
 			currentStatus: this.state.currentStatus,
 			dateIn: this.state.dateIn,
 			dateOut: this.state.dateOut,
-			madeBy: this.state.madeBy,
+			madeBy: this.state.madeBy
 		};
 		fetch("http://localhost:4000/addreservation", {
 			method: "POST",
@@ -566,7 +552,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -580,15 +565,18 @@ export default class BookOnline extends Component {
 			currentStatus: this.state.currentStatus,
 			dateIn: this.state.dateIn,
 			dateOut: this.state.dateOut,
-			madeBy: this.state.madeBy,
+			madeBy: this.state.madeBy
 		};
-		fetch("http://localhost:4000/updatereservation/" + this.state.reservationID, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(reservation)
-		})
+		fetch(
+			"http://localhost:4000/updatereservation/" + this.state.reservationID,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(reservation)
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -596,20 +584,22 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Reservations
-	requestDeleteReservation = e => {
+	handleDeleteReservation = e => {
 		e.preventDefault();
 
-		fetch("http://localhost:4000/deletereservation/" + this.state.reservationID, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: undefined
-		})
+		fetch(
+			"http://localhost:4000/deletereservation/" + this.state.reservationID,
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: undefined
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -632,7 +622,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -643,7 +632,7 @@ export default class BookOnline extends Component {
 		const stay = {
 			dayIn: this.state.dayIn,
 			SSN: this.state.SSN,
-			dayOut: this.state.dayOut,
+			dayOut: this.state.dayOut
 		};
 		fetch("http://localhost:4000/updatestayduration/" + this.state.dayIn, {
 			method: "PATCH",
@@ -659,7 +648,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Stay Duration
-	requestDeleteStayDuratino = e => {
+	handleDeleteStayDuratino = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deletestayduration/" + this.state.dayIn, {
@@ -672,7 +661,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -702,7 +690,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -720,7 +707,7 @@ export default class BookOnline extends Component {
 			address: this.state.address,
 			state: this.state.state,
 			city: this.state.city,
-			sex: this.state.sex,
+			sex: this.state.sex
 		};
 		fetch("http://localhost:4000/updatecustomer/" + this.state.SSN, {
 			method: "PATCH",
@@ -736,7 +723,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Customer
-	requestDeleteCustomer = e => {
+	handleDeleteCustomer = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deletecustomer/" + this.state.SSN, {
@@ -749,13 +736,12 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// _______________________________Room Change___________________________________________
 	// Create Room Change
-	handleCreateRoomChange= e => {
+	handleCreateRoomChange = e => {
 		e.preventDefault();
 		let roomChange = {
 			reservationID: this.state.reservationID,
@@ -772,7 +758,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -783,15 +768,18 @@ export default class BookOnline extends Component {
 		const change = {
 			reservationID: this.state.reservationID,
 			SSN: this.state.SSN,
-			roomNumber: this.state.roomNumber,
+			roomNumber: this.state.roomNumber
 		};
-		fetch("http://localhost:4000/updateroomnumber/" + this.state.reservationID, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(change)
-		})
+		fetch(
+			"http://localhost:4000/updateroomnumber/" + this.state.reservationID,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(change)
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -799,20 +787,22 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Room Change
-	requestDeleteRoomChange = e => {
+	handleDeleteRoomChange = e => {
 		e.preventDefault();
 
-		fetch("http://localhost:4000/deleteroomchange/" + this.state.reservationID, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: undefined
-		})
+		fetch(
+			"http://localhost:4000/deleteroomchange/" + this.state.reservationID,
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: undefined
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -826,7 +816,7 @@ export default class BookOnline extends Component {
 			middleInitial: this.state.middleInitial,
 			lastName: this.state.lastName,
 			SSN: this.state.SSN,
-			sex: this.state.sex,
+			sex: this.state.sex
 		};
 		fetch("http://localhost:4000/addhotelemployee", {
 			method: "POST",
@@ -838,7 +828,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -852,15 +841,18 @@ export default class BookOnline extends Component {
 			middleInitial: this.state.middleInitial,
 			lastName: this.state.lastName,
 			SSN: this.state.SSN,
-			sex: this.state.sex,
+			sex: this.state.sex
 		};
-		fetch("http://localhost:4000/updatehotelemployee/" + this.state.employeeID, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(employee)
-		})
+		fetch(
+			"http://localhost:4000/updatehotelemployee/" + this.state.employeeID,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(employee)
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
@@ -868,20 +860,22 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Hotel Employee
-	requestDeleteHotelEmployee = e => {
+	handleDeleteHotelEmployee = e => {
 		e.preventDefault();
 
-		fetch("http://localhost:4000/deletehotelemployee/" + this.state.employeeID, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: undefined
-		})
+		fetch(
+			"http://localhost:4000/deletehotelemployee/" + this.state.employeeID,
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: undefined
+			}
+		)
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -894,7 +888,7 @@ export default class BookOnline extends Component {
 			employeeID: this.state.employeeID,
 			username: this.state.username,
 			pword: this.state.pword,
-			clearanceLevel: this.state.clearanceLevel,
+			clearanceLevel: this.state.clearanceLevel
 		};
 		fetch("http://localhost:4000/addemployeeaccount", {
 			method: "POST",
@@ -906,7 +900,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -920,7 +913,7 @@ export default class BookOnline extends Component {
 			username: this.state.username,
 			pword: this.state.pword,
 			clearanceLevel: this.state.clearanceLevel,
-			city: this.state.address,
+			city: this.state.address
 		};
 		fetch("http://localhost:4000/updatehotel/" + this.state.SSN, {
 			method: "PATCH",
@@ -936,7 +929,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Employee Account
-	requestDeleteEmployeeAccount = e => {
+	handleDeleteEmployeeAccount = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deleteemployeeaccount/" + this.state.SSN, {
@@ -949,7 +942,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -972,7 +964,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -983,7 +974,7 @@ export default class BookOnline extends Component {
 		const roomService = {
 			menu: this.state.menu,
 			roomNumber: this.state.roomNumber,
-			price: this.state.price,
+			price: this.state.price
 		};
 		fetch("http://localhost:4000/updateroomservice/" + this.state.menu, {
 			method: "PATCH",
@@ -999,7 +990,7 @@ export default class BookOnline extends Component {
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Delete Room Service
-	requestDeleteRoomService = e => {
+	handleDeleteRoomService = e => {
 		e.preventDefault();
 
 		fetch("http://localhost:4000/deleteroomservice/" + this.state.menu, {
@@ -1012,12 +1003,10 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
 	//  **********************End of Queries*************************************
-
 
 	render() {
 		return (
@@ -1028,7 +1017,7 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.requestInfo}>
+							<form onSubmit={this.handleCreateHotel}>
 								<div className="form-group">
 									<input
 										type="text"
@@ -1063,15 +1052,14 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="State">State</label>
 									<select
 										className="form-control input-lg"
-										name="State"
-										id="State"
+										name="state"
+										id="state"
 										required
 										onChange={this.handleChange}
 									>
-										<option value="">Please Select...</option>
+										<option value="">Select State...</option>
 										<option value="AL">AL</option>
 										<option value="AK">AK</option>
 										<option value="AR">AR</option>
@@ -1139,1765 +1127,7 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Create Hotel
 								</button>
-								<h1>{this.state.responseSuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Reservation </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="Res_id"
-										id="Res_id"
-										placeholder="Reservation ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelID"
-										id="hotelID"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="price"
-										name="price"
-										id="price"
-										placeholder="price Address"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="tel"
-										name="starRatingNum"
-										id="starRating"
-										placeholder="###-###-####"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotel">hotel</label>
-									<select
-										className="form-control input-lg"
-										name="hotel"
-										id="hotel"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="Bullet">Bullet</option>
-										<option value="Chris">Chris</option>
-										<option value="Denny">Denny</option>
-										<option value="Tommy">Tommy</option>
-										<option value="Ned">Ned</option>
-										<option value="Walter">Walter</option>
-										<option value="Daenerys">Daenerys</option>
-										<option value="Rick">Rick</option>
-										<option value="Morty">Morty</option>
-										<option value="Peter">Peter</option>
-										<option value="Eric">Eric</option>
-									</select>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotel">Date</label>
-									<input
-										type="Date"
-										name="date"
-										id="date"
-										placeholder="MM/DD/YYYY"
-										maxLength="10"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Reservation
-								</button>
-								<h1>{this.state.responseUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete Reservation </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestDelete}>
-								<div className="form-group">
-									<label htmlFor="hotel">Reservation ID</label>
-									<input
-										type="number"
-										name="Res_id"
-										id="Res_id"
-										placeholder="Reservation ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-
-								<button type="submit" className="btn button btn-lg">
-									Delete Reservation
-								</button>
-								<h1>{this.state.responseDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Create hotel </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestArtInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="hotelID"
-										id="hotelID"
-										placeholder="Enter #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="firstName"
-										id="firstName"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="hotelRating"
-										id="hotelRating"
-										placeholder="Rating #"
-										maxLength="12"
-										min="0"
-										max="5"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create hotel
-								</button>
-								<h1>{this.state.address}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update hotel </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestArtUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="hotelID"
-										id="hotelID"
-										placeholder="Enter #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="firstName"
-										id="firstName"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="hotelRating"
-										id="hotelRating"
-										placeholder="Rating #"
-										maxLength="12"
-										min="0"
-										max="5"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update hotel
-								</button>
-								<h1>{this.state.city}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete hotel </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestArtDelete}>
-								<div className="form-group">
-									<label htmlFor="hotel">hotel ID</label>
-									<input
-										type="number"
-										name="hotelID"
-										id="hotelID"
-										placeholder="hotel ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete hotel
-								</button>
-								<h1>{this.state.state}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Add Location </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestLocationInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="hotelID"
-										id="hotelID"
-										placeholder="Enter #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="State">State</label>
-									<select
-										className="form-control input-lg"
-										name="State"
-										id="State"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="AL">AL</option>
-										<option value="AK">AK</option>
-										<option value="AR">AR</option>
-										<option value="AZ">AZ</option>
-										<option value="CA">CA</option>
-										<option value="CO">CO</option>
-										<option value="CT">CT</option>
-										<option value="DE">DE</option>
-										<option value="FL">FL</option>
-										<option value="GA">GA</option>
-										<option value="HI">HI</option>
-										<option value="ID">ID</option>
-										<option value="IA">IA</option>
-										<option value="IL">IL</option>
-										<option value="IN">IN</option>
-										<option value="KS">KS</option>
-										<option value="KY">KY</option>
-										<option value="LA">LA</option>
-										<option value="MA">MA</option>
-										<option value="MD">MD</option>
-										<option value="ME">ME</option>
-										<option value="MI">MI</option>
-										<option value="MN">MN</option>
-										<option value="MO">MO</option>
-										<option value="MS">MS</option>
-										<option value="MT">MT</option>
-										<option value="NC">NC</option>
-										<option value="ND">ND</option>
-										<option value="NE">NE</option>
-										<option value="NH">NH</option>
-										<option value="NJ">NJ</option>
-										<option value="NM">NM</option>
-										<option value="NV">NV</option>
-										<option value="NY">NY</option>
-										<option value="OH">OH</option>
-										<option value="OK">OK</option>
-										<option value="OR">OR</option>
-										<option value="PA">PA</option>
-										<option value="RI">RI</option>
-										<option value="SC">SC</option>
-										<option value="SD">SD</option>
-										<option value="TN">TN</option>
-										<option value="TX">TX</option>
-										<option value="UT">UT</option>
-										<option value="VT">VT</option>
-										<option value="VA">VA</option>
-										<option value="WA">WA</option>
-										<option value="WI">WI</option>
-										<option value="WV">WV</option>
-										<option value="WY">WY</option>
-									</select>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="City"
-										id="City"
-										placeholder="City"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="Address"
-										id="Address"
-										placeholder="Address"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="Zip"
-										id="Zip"
-										placeholder="Zipcode"
-										maxLength="5"
-										minLength="5"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Confirm Location
-								</button>
-								<h1>{this.state.responseLocationSuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Location </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestLocationUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="hotelID"
-										id="hotelID"
-										placeholder="Enter #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="State">State</label>
-									<select
-										className="form-control input-lg"
-										name="State"
-										id="State"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="AL">AL</option>
-										<option value="AK">AK</option>
-										<option value="AR">AR</option>
-										<option value="AZ">AZ</option>
-										<option value="CA">CA</option>
-										<option value="CO">CO</option>
-										<option value="CT">CT</option>
-										<option value="DE">DE</option>
-										<option value="FL">FL</option>
-										<option value="GA">GA</option>
-										<option value="HI">HI</option>
-										<option value="ID">ID</option>
-										<option value="IA">IA</option>
-										<option value="IL">IL</option>
-										<option value="IN">IN</option>
-										<option value="KS">KS</option>
-										<option value="KY">KY</option>
-										<option value="LA">LA</option>
-										<option value="MA">MA</option>
-										<option value="MD">MD</option>
-										<option value="ME">ME</option>
-										<option value="MI">MI</option>
-										<option value="MN">MN</option>
-										<option value="MO">MO</option>
-										<option value="MS">MS</option>
-										<option value="MT">MT</option>
-										<option value="NC">NC</option>
-										<option value="ND">ND</option>
-										<option value="NE">NE</option>
-										<option value="NH">NH</option>
-										<option value="NJ">NJ</option>
-										<option value="NM">NM</option>
-										<option value="NV">NV</option>
-										<option value="NY">NY</option>
-										<option value="OH">OH</option>
-										<option value="OK">OK</option>
-										<option value="OR">OR</option>
-										<option value="PA">PA</option>
-										<option value="RI">RI</option>
-										<option value="SC">SC</option>
-										<option value="SD">SD</option>
-										<option value="TN">TN</option>
-										<option value="TX">TX</option>
-										<option value="UT">UT</option>
-										<option value="VT">VT</option>
-										<option value="VA">VA</option>
-										<option value="WA">WA</option>
-										<option value="WI">WI</option>
-										<option value="WV">WV</option>
-										<option value="WY">WY</option>
-									</select>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="City"
-										id="City"
-										placeholder="City"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="Address"
-										id="Address"
-										placeholder="Address"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="Zip"
-										id="Zip"
-										placeholder="Zipcode"
-										maxLength="5"
-										minLength="5"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Location
-								</button>
-								<h1>{this.state.responseLocationUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete Location </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestLocationDelete}>
-								<div className="form-group">
-									<label htmlFor="Location">SHOP ID</label>
-									<input
-										type="number"
-										name="hotelID"
-										id="hotelID"
-										placeholder="Shop ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Location
-								</button>
-								<h1>{this.state.responseLocationDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Add Inventory </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestInventoryInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="vacancy"
-										id="vacancy"
-										placeholder="Enter #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="typeOfRoom"
-										id="typeOfRoom"
-										placeholder="Equipment Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="price"
-										id="price"
-										placeholder="price"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Inventory
-								</button>
-								<h1>{this.state.responseInventorySuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Inventory </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestInventoryUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="vacancy"
-										id="vacancy"
-										placeholder="Enter #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="typeOfRoom"
-										id="typeOfRoom"
-										placeholder="Equipment Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="price"
-										id="price"
-										placeholder="price"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Inventory
-								</button>
-								<h1>{this.state.responseInventoryUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete Inventory </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestInventoryDelete}>
-								<div className="form-group">
-									<label htmlFor="Inventory">Equipment ID</label>
-									<input
-										type="number"
-										name="vacancy"
-										id="vacancy"
-										placeholder="Equipment ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Inventory
-								</button>
-								<h1>{this.state.responseInventoryDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Add Manager </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestManInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="machineName"
-										id="machineName"
-										placeholder="Enter Manager ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="firstName"
-										id="firstName"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Add Manager
-								</button>
-								<h1>{this.state.machineID}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Update Manager </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestManUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="machineName"
-										id="machineName"
-										placeholder="Enter ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="firstName"
-										id="firstName"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Manager
-								</button>
-								<h1>{this.state.responseManUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Delete Manager </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestManDelete}>
-								<div className="form-group">
-									<label htmlFor="Manager">MANAGER ID</label>
-									<input
-										type="number"
-										name="machineName"
-										id="machineName"
-										placeholder="Manager ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Manager
-								</button>
-								<h1>{this.state.responseManDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Add Manager Account </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestManAccountInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="machineName"
-										id="machineName"
-										placeholder="Enter Manager ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="address"
-										id="address"
-										placeholder="Username"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="password"
-										name="city"
-										id="city"
-										placeholder="Password"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Add Manager
-								</button>
-								<h1>{this.state.state}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Update Manager Account</h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestManAccountUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="machineName"
-										id="machineName"
-										placeholder="Enter ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="address"
-										id="address"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="password"
-										name="city"
-										id="city"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Manager Account
-								</button>
-								<h1>{this.state.responseManAccountUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Delete Manager Account</h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestManAccountDelete}>
-								<div className="form-group">
-									<label htmlFor="Manager">MANAGER ID</label>
-									<input
-										type="number"
-										name="machineName"
-										id="machineName"
-										placeholder="Manager ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Manager Account
-								</button>
-								<h1>{this.state.responseManDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Add Customer </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCustomerInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Customer ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="firstName"
-										id="firstName"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Add Customer
-								</button>
-								<h1>{this.state.responseCustomerSuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Update Customer </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCustomerUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="firstName"
-										id="firstName"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Customer
-								</button>
-								<h1>{this.state.responseCustomerUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Delete Customer </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCustomerDelete}>
-								<div className="form-group">
-									<label htmlFor="Customer">CUSTOMER ID</label>
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Customer ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Customer
-								</button>
-								<h1>{this.state.responseCustomerDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Add Customer Account</h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCustomerAccountInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Customer ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="price"
-										name="price"
-										id="price"
-										placeholder="you@example.com"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="starRating"
-										id="starRating"
-										placeholder="starRating Number"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="address"
-										id="address"
-										placeholder="Username"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="password"
-										name="city"
-										id="city"
-										placeholder="Password"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Add Customer Account
-								</button>
-								<h1>{this.state.responseCustomerAccountSuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Update Customer Account</h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCustomerAccountUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="price"
-										name="price"
-										id="price"
-										placeholder="you@example.com"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="starRating"
-										id="starRating"
-										placeholder="starRating Number"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="address"
-										id="address"
-										placeholder="Username"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="password"
-										name="city"
-										id="city"
-										placeholder="Password"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Customer Account
-								</button>
-								<h1>{this.state.responseCustomerAccountUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Delete Customer Account </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCustomerAccountDelete}>
-								<div className="form-group">
-									<label htmlFor="Customer">CUSTOMER ID</label>
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Customer ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Customer Account
-								</button>
-								<h1>{this.state.responseCustomerAccountDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section>
-					<div className="page-header">
-						<h2>Add Merchandise </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestMerchandiseInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="currentStatus"
-										id="currentStatus"
-										placeholder="Enter #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="reservationID"
-										id="reservationID"
-										placeholder="Type of Merchandise"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="dateIn"
-										id="dateIn"
-										placeholder="Name of Merchandise"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="dateOut"
-										id="dateOut"
-										placeholder="price"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="madeBy"
-										id="madeBy"
-										placeholder="Current stock"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Merchandise
-								</button>
-								<h1>{this.state.responseMerchSuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Merchandise </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestMerchandiseUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="currentStatus"
-										id="currentStatus"
-										placeholder="Enter #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="reservationID"
-										id="reservationID"
-										placeholder="Type of Merchandise"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="dateIn"
-										id="dateIn"
-										placeholder="Name of Merchandise"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="dateOut"
-										id="dateOut"
-										placeholder="price"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="madeBy"
-										id="madeBy"
-										placeholder="Current stock"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Merchandise
-								</button>
-								<h1>{this.state.responseMerchUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete Merchandise </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestMerchandiseDelete}>
-								<div className="form-group">
-									<label htmlFor="Inventory">Merchandise ID</label>
-									<input
-										type="number"
-										name="currentStatus"
-										id="currentStatus"
-										placeholder="Merchandise ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Merchandise
-								</button>
-								<h1>{this.state.responseMerchDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Create Room </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestRoomInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Room #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Cust #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="dayIn"
-										id="dayIn"
-										placeholder="Enter Room Type #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="price"
-										id="price"
-										placeholder="Enter price"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="vacancy"
-										id="vacancy"
-										placeholder="Equipment ID"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Room
-								</button>
-								<h1>{this.state.reponseRoomSuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Room </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestRoomUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Room #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Cust #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="dayIn"
-										id="dayIn"
-										placeholder="Enter Room Type #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="price"
-										id="price"
-										placeholder="Enter price"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="vacancy"
-										id="vacancy"
-										placeholder="Equipment ID"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Room
-								</button>
-								<h1>{this.state.responseRoomUpdate}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete Room </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestRoomCancellation}>
-								<div className="form-group">
-									<label htmlFor="Inventory">Room No</label>
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Room Number"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Room
-								</button>
-								<h1>{this.state.responseRoomDelete}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Create Hotel </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestRoom}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="Tat_no"
-										id="Tat_no"
-										placeholder="Enter Hotel #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Cust #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="Type"
-										id="Type"
-										placeholder="Enter Type #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="roomNumber"
-										id="roomNumber"
-										placeholder="Enter roomNumber #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="EST # of hours"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="vacancy"
-										id="vacancy"
-										placeholder="Equipment ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Hotel
-								</button>
-								<h1>{this.state.responseHotelSuccess}</h1>
+								<h1>{/* This is where DONE will go */}</h1>
 							</form>
 						</div>
 					</div>
@@ -2909,14 +1139,13 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.requestRoomUpdate}>
+							<form onSubmit={this.handleUpdateHotel}>
 								<div className="form-group">
 									<input
-										type="number"
-										name="Tat_no"
-										id="Tat_no"
-										placeholder="Enter Hotel #"
-										maxLength="12"
+										type="text"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -2924,73 +1153,93 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Cust #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="Type"
-										id="Type"
-										placeholder="Enter Type #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="roomNumber"
-										id="roomNumber"
-										placeholder="Enter roomNumber #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="EST # of hours"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
+										type="text"
 										name="hotelID"
 										id="hotelID"
+										placeholder="Hotel ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="address"
+										id="address"
+										placeholder="Address"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<select
+										className="form-control input-lg"
+										name="state"
+										id="state"
 										required
 										onChange={this.handleChange}
 									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
+										<option value="">Select State...</option>
+										<option value="AL">AL</option>
+										<option value="AK">AK</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DE">DE</option>
+										<option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="ID">ID</option>
+										<option value="IA">IA</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VT">VT</option>
+										<option value="VA">VA</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
 									</select>
 								</div>
 								<div className="form-group">
 									<input
-										type="number"
-										name="vacancy"
-										id="vacancy"
-										placeholder="Equipment ID #"
+										type="text"
+										name="city"
+										id="city"
+										placeholder="City"
 										maxLength="12"
 										className="form-control input-lg"
 										required
@@ -3000,7 +1249,7 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Update Hotel
 								</button>
-								<h1>{this.state.responseHotelUpdated}</h1>
+								<h1>{/* This is where DONE will go */}</h1>
 							</form>
 						</div>
 					</div>
@@ -3012,23 +1261,22 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.requestRoomDelete}>
+							<form onSubmit={this.handleDeleteHotel}>
 								<div className="form-group">
-									<label htmlFor="Inventory">Room No</label>
 									<input
-										type="number"
-										name="Tat_no"
-										id="Tat_no"
-										placeholder="Enter Hotel Number"
+										type="text"
+										name="hotelID"
+										id="hotelID"
+										placeholder="Hotel ID"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
 									/>
 								</div>
+
 								<button type="submit" className="btn button btn-lg">
 									Delete Hotel
 								</button>
-								<h1>{this.state.responseHotelDeleted}</h1>
 							</form>
 						</div>
 					</div>
@@ -3036,17 +1284,28 @@ export default class BookOnline extends Component {
 
 				<section>
 					<div className="page-header">
-						<h2>Create Result </h2>
+						<h2>Create Hotel Price </h2>
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.requestResultInfo}>
+							<form onSubmit={this.handleCreateHotelPrice}>
 								<div className="form-group">
 									<input
-										type="number"
-										name="firstName"
-										id="firstName"
-										placeholder="Enter Result #"
+										type="text"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelID"
+										id="hotelID"
+										placeholder="Hotel ID"
 										maxLength="12"
 										className="form-control input-lg"
 										required
@@ -3054,38 +1313,1127 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
+									<input
+										type="text"
+										name="price"
+										id="price"
+										placeholder="Price"
 										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
 										required
 										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Hotel Price
+								</button>
+								<h1>{this.state.address}</h1>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Hotel Price </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleUpdateHotelPrice}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
 								</div>
 								<div className="form-group">
 									<input
+										type="text"
+										name="hotelID"
+										id="hotelID"
+										placeholder="Hotel ID"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="price"
+										id="price"
+										placeholder="Price"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Hotel Price
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Delete Hotel Price </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteHotelPrice}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Hotel Price
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Room </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateRoom}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+
+								<div className="form-group">
+									<input
+										type="text"
+										name="maxPersons"
+										id="maxPersons"
+										placeholder="Max Number of Guests"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="price"
+										id="price"
+										placeholder="Price"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Room
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Room </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleUpdateRooms}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+
+								<div className="form-group">
+									<input
+										type="text"
+										name="maxPersons"
+										id="maxPersons"
+										placeholder="Max Number of Guests"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="price"
+										id="price"
+										placeholder="Price"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Room
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div className="page-header">
+						<h2>Delete Room </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteRoom}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Room
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Room Type </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateRoomType}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="typeOfRoom"
+										id="typeOfRoom"
+										placeholder="Type of Room"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="price"
+										id="price"
+										placeholder="Price"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="vacancy"
+										id="vacancy"
+										placeholder="Vacancy"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Room Type
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Room Type</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleUpdateRoomType}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="typeOfRoom"
+										id="typeOfRoom"
+										placeholder="Type of Room"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="price"
+										id="price"
+										placeholder="Price"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="vacancy"
+										id="vacancy"
+										placeholder="Vacancy"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Room Type
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Delete Room Type </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteRoomType}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="typeOfRoom"
+										id="typeOfRoom"
+										placeholder="Type of Room"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Room Type
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Fitness Center </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateFitnessCenter}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelID"
+										id="hotelID"
+										placeholder="Hotel ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="machineID"
+										id="machineID"
+										placeholder="Machine ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="machineName"
+										id="machineName"
+										placeholder="MachineName"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Fitness Center
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Fitness Center </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateFitnessCenter}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelID"
+										id="hotelID"
+										placeholder="Hotel ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="machineID"
+										id="machineID"
+										placeholder="Machine ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="machineName"
+										id="machineName"
+										placeholder="MachineName"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Fitness Center
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Delete Fitness Center </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteFitnessCenter}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="machineID"
+										id="machineID"
+										placeholder="Machine ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Fitness Center
+								</button>
+								<h1>{this.state.responseInventoryDeleted}</h1>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Location </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateLocation}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="address"
+										id="address"
+										placeholder="Address"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelID"
+										id="hotelID"
+										placeholder="First Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="city"
+										id="city"
+										placeholder="City"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<select
+										className="form-control input-lg"
+										name="State"
+										id="State"
+										required
+										onChange={this.handleChange}
+									>
+										<option value="">Select State...</option>
+										<option value="AL">AL</option>
+										<option value="AK">AK</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DE">DE</option>
+										<option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="ID">ID</option>
+										<option value="IA">IA</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VT">VT</option>
+										<option value="VA">VA</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
+									</select>
+								</div>
+
+								<button type="submit" className="btn button btn-lg">
+									Create Location
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div className="page-header">
+						<h2>Update Location </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleUpdateLocation}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="address"
+										id="address"
+										placeholder="Address"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelID"
+										id="hotelID"
+										placeholder="First Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="city"
+										id="city"
+										placeholder="City"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<select
+										className="form-control input-lg"
+										name="State"
+										id="State"
+										required
+										onChange={this.handleChange}
+									>
+										<option value="">Select State...</option>
+										<option value="AL">AL</option>
+										<option value="AK">AK</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DE">DE</option>
+										<option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="ID">ID</option>
+										<option value="IA">IA</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VT">VT</option>
+										<option value="VA">VA</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
+									</select>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Location
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div className="page-header">
+						<h2>Delete Location </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteLocation}>
+								<div className="form-group">
+									<input
 										type="number"
+										name="address"
+										id="address"
+										placeholder="Address"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Location
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Hotel Rating </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateHotelRating}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="hotelID"
+										id="hotelID"
+										placeholder="Hotel ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="starRating"
+										id="starRating"
+										placeholder="Star Rating"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Hotel Rating
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Hotel Rating</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleUpdateHotelRating}>
+								<div className="form-group">
+									<input
+										type="number"
+										name="machineName"
+										id="machineName"
+										placeholder="Enter ID #"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="address"
+										id="address"
+										placeholder="First Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="password"
+										name="city"
+										id="city"
+										placeholder="Last Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Hotel Rating
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Delete Hotel Rating</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteHotelRating}>
+								<div className="form-group">
+									<input
+										type="number"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Hotel Rating
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Reservation </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateReservation}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="reservationID"
+										id="reservationID"
+										placeholder="Reservation ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="currentStatus"
+										id="currentStatus"
+										placeholder="Current Status"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dateIn"
+										id="dateIn"
+										placeholder="Date In"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dateOut"
+										id="dateOut"
+										placeholder="Date Out"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="madeBy"
+										id="madeBy"
+										placeholder="Made By"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Reservation
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div className="page-header">
+						<h2>Update Reservation </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateReservation}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="reservationID"
+										id="reservationID"
+										placeholder="Reservation ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="currentStatus"
+										id="currentStatus"
+										placeholder="Current Status"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dateIn"
+										id="dateIn"
+										placeholder="Date In"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dateOut"
+										id="dateOut"
+										placeholder="Date Out"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="madeBy"
+										id="madeBy"
+										placeholder="Made By"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Reservation
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div className="page-header">
+						<h2>Delete Reservation </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteReservation}>
+								<div className="form-group">
+									<input
+										type="number"
+										name="reservationID"
+										id="reservationID"
+										placeholder="Reservation ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Reservation
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Stay Duration</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateStayDuration}>
+								<div className="form-group">
+									<input
+										type="number"
+										name="dayIn"
+										id="dayIn"
+										placeholder="Day In"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dayOut"
+										id="dayOut"
+										placeholder="Day Out"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
 										name="SSN"
 										id="SSN"
-										placeholder="Enter Cust #"
-										maxLength="12"
+										placeholder="SSN"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
 									/>
 								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Stay Duration
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div className="page-header">
+						<h2>Update Stay Duration</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleUpdateStayDuration}>
 								<div className="form-group">
 									<input
 										type="number"
-										name="hotelID"
-										id="hotelID"
-										placeholder="Enter hotel #"
+										name="dayIn"
+										id="dayIn"
+										placeholder="Day In"
 										maxLength="12"
 										className="form-control input-lg"
 										required
@@ -3093,104 +2441,84 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="lastName">Reservation Type</label>
-									<select
+									<input
+										type="text"
+										name="dayOut"
+										id="dayOut"
+										placeholder="Day Out"
 										className="form-control input-lg"
-										name="lastName"
-										id="lastName"
 										required
 										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="Hotel">Hotel</option>
-										<option value="Room">Room</option>
-									</select>
+									/>
 								</div>
 								<div className="form-group">
-									<label htmlFor="middleInitial">Reservation Date</label>
 									<input
-										type="Date"
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Stay Duration
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div className="page-header">
+						<h2>Delete Stay Duration </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteStayDuratino}>
+								<div className="form-group">
+									<input
+										type="number"
+										name="dayIn"
+										id="dayIn"
+										placeholder="Day In"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Stay Duration
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Customer</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateCustomer}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="firstName"
+										id="firstName"
+										placeholder="First Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
 										name="middleInitial"
 										id="middleInitial"
-										placeholder="MM/DD/YYYY"
-										maxLength="10"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="SSN">Start Time</label>
-									<input
-										type="time"
-										name="SSN"
-										id="SSN"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="employeeID">End Time</label>
-									<input
-										type="time"
-										name="employeeID"
-										id="employeeID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Result
-								</button>
-								<h1>{this.state.sex}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Result </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestResultUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="firstName"
-										id="firstName"
-										placeholder="Enter Result #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Enter Cust #"
-										maxLength="12"
+										placeholder="Middle Initial"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -3198,69 +2526,322 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="number"
-										name="hotelID"
-										id="hotelID"
-										placeholder="Enter hotel #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="lastName">Reservation Type</label>
-									<select
-										className="form-control input-lg"
+										type="text"
 										name="lastName"
 										id="lastName"
+										placeholder="Last Name"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="sex"
+										id="sex"
+										placeholder="Sex"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="reservationID"
+										id="reservationID"
+										placeholder="Reservation ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="number"
+										name="address"
+										id="address"
+										placeholder="Address"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="city"
+										id="city"
+										placeholder="City"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<select
+										className="form-control input-lg"
+										name="State"
+										id="State"
 										required
 										onChange={this.handleChange}
 									>
-										<option value="">Please Select...</option>
-										<option value="Hotel">Hotel</option>
-										<option value="Room">Room</option>
+										<option value="">Select State...</option>
+										<option value="AL">AL</option>
+										<option value="AK">AK</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DE">DE</option>
+										<option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="ID">ID</option>
+										<option value="IA">IA</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VT">VT</option>
+										<option value="VA">VA</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
 									</select>
 								</div>
 								<div className="form-group">
-									<label htmlFor="middleInitial">Reservation Date</label>
 									<input
-										type="Date"
-										name="middleInitial"
-										id="middleInitial"
-										placeholder="MM/DD/YYYY"
-										maxLength="10"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="SSN">Start Time</label>
-									<input
-										type="time"
-										name="SSN"
-										id="SSN"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="employeeID">End Time</label>
-									<input
-										type="time"
-										name="employeeID"
-										id="employeeID"
+										type="text"
+										name="phone"
+										id="phone"
+										placeholder="Phone Number"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
 									/>
 								</div>
 								<button type="submit" className="btn button btn-lg">
-									Update Result
+									Create Customer
 								</button>
-								<h1>{this.state.responseResultUpdated}</h1>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+				<div className="page-header">
+						<h2>Update Customer </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateCustomer}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="firstName"
+										id="firstName"
+										placeholder="First Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="middleInitial"
+										id="middleInitial"
+										placeholder="Middle Initial"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="lastName"
+										id="lastName"
+										placeholder="Last Name"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="sex"
+										id="sex"
+										placeholder="Sex"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="reservationID"
+										id="reservationID"
+										placeholder="Reservation ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="number"
+										name="address"
+										id="address"
+										placeholder="Address"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="city"
+										id="city"
+										placeholder="City"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<select
+										className="form-control input-lg"
+										name="State"
+										id="State"
+										required
+										onChange={this.handleChange}
+									>
+										<option value="">Select State...</option>
+										<option value="AL">AL</option>
+										<option value="AK">AK</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DE">DE</option>
+										<option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="ID">ID</option>
+										<option value="IA">IA</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VT">VT</option>
+										<option value="VA">VA</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
+									</select>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="phone"
+										id="phone"
+										placeholder="Phone Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Customer
+								</button>
 							</form>
 						</div>
 					</div>
@@ -3268,501 +2849,626 @@ export default class BookOnline extends Component {
 
 				<section>
 					<div className="page-header">
-						<h2>Delete Result </h2>
+						<h2>Delete Customer </h2>
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.requestResultDelete}>
+							<form onSubmit={this.handleDeleteRoomChange}>
 								<div className="form-group">
-									<label htmlFor="Result">Result ID</label>
 									<input
-										type="number"
-										name="firstName"
-										id="firstName"
-										placeholder="Enter Result ID"
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
 									/>
 								</div>
 								<button type="submit" className="btn button btn-lg">
-									Delete Result
+									Delete Room Change
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Room Change</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateRoomChange}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="reservationID"
+										id="reservationID"
+										placeholder="Reservation ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Room Change
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Room Change</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateRoomChange}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="reservationID"
+										id="reservationID"
+										placeholder="Reservation ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Room Change
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Delete Room Change </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteRoomChange}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="reservationID"
+										id="reservationID"
+										placeholder="Reservation ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Room Change
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Hotel Employee </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateHotelEmployee}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="firstName"
+										id="firstName"
+										placeholder="First Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="middleInitial"
+										id="middleInitial"
+										placeholder="Middle Initial"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="lastName"
+										id="lastName"
+										placeholder=" Last Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="sex"
+										id="sex"
+										placeholder="Sex"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="employeeID"
+										id="employeeID"
+										placeholder="Employee ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Hotel Employee
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Hotel Employee </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleUpdateHotelEmployee}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="firstName"
+										id="firstName"
+										placeholder="First Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="middleInitial"
+										id="middleInitial"
+										placeholder="Middle Initial"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="lastName"
+										id="lastName"
+										placeholder=" Last Name"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="sex"
+										id="sex"
+										placeholder="Sex"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="employeeID"
+										id="employeeID"
+										placeholder="Employee ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Hotel Employee
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Delete Hotel Employee </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteHotelEmployee}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="employeeID"
+										id="employeeID"
+										placeholder="Employee ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Hotel Employee
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Employee Account </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateEmployeeAccount}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="username"
+										id="username"
+										placeholder="Username"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="password"
+										name="pword"
+										id="pword"
+										placeholder="Password"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="employeeID"
+										id="employeeID"
+										placeholder="Employee ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="clearanceLevel"
+										id="clearanceLevel"
+										placeholder="Clearance Level"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Employee Account
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Employee Account</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleUpdateEmployeeAccount}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="username"
+										id="username"
+										placeholder="Username"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="password"
+										name="pword"
+										id="pword"
+										placeholder="Password"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="employeeID"
+										id="employeeID"
+										placeholder="Employee ID"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="clearanceLevel"
+										id="clearanceLevel"
+										placeholder="Clearance Level"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Hotel Employee
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Delete Employee Account </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteHotelEmployee}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Employee Account
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Create Room Service</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateRoomService}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="menu"
+										id="menu"
+										placeholder="Menu"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="price"
+										id="price"
+										placeholder="Price"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Room Service
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Update Room Service </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleCreateRoomService}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="menu"
+										id="menu"
+										placeholder="Menu"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="roomNumber"
+										id="roomNumber"
+										placeholder="Room Number"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="price"
+										id="price"
+										placeholder="Price"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Room Service
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div className="page-header">
+						<h2>Delete Room Service </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<form onSubmit={this.handleDeleteRoomService}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="menu"
+										id="menu"
+										placeholder="Menu"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Room Service
 								</button>
 								<h1>{this.state.responseResultDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Create Waiver Policy </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestWaiverPolicyInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="menu"
-										id="menu"
-										placeholder="Enter Policy #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="price"
-										id="price"
-										placeholder="Policy Sign #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="middleInitial">Policy Date</label>
-									<input
-										type="date"
-										name="roomNumber"
-										id="roomNumber"
-										placeholder="MM/DD/YYYY"
-										maxLength="10"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Cust ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Waiver Policy
-								</button>
-								<h1>{this.state.responseWaiverPolicySuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Waiver Policy </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestWaiverPolicyUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="menu"
-										id="menu"
-										placeholder="Enter Policy #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="price"
-										id="price"
-										placeholder="Policy Sign #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="middleInitial">Policy Date</label>
-									<input
-										type="date"
-										name="roomNumber"
-										id="roomNumber"
-										placeholder="MM/DD/YYYY"
-										maxLength="10"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Cust ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Waiver Policy
-								</button>
-								<h1>{this.state.responseWaiverPolicyUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete Waiver Policy </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestWaiverPolicyDelete}>
-								<div className="form-group">
-									<label htmlFor="Result">Policy ID</label>
-									<input
-										type="number"
-										name="menu"
-										id="menu"
-										placeholder="Enter Result ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Waiver Policy
-								</button>
-								<h1>{this.state.responseWaiverPolicyDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Create Cancellation Policy </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCancellationPolicyInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="menu"
-										id="menu"
-										placeholder="Enter Policy #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="price"
-										id="price"
-										placeholder="Policy Sign #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="middleInitial">Policy Date</label>
-									<input
-										type="date"
-										name="roomNumber"
-										id="roomNumber"
-										placeholder="MM/DD/YYYY"
-										maxLength="10"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Cust ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Cancellation Policy
-								</button>
-								<h1>{this.state.responseCancellationPolicySuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Cancellation Policy </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCancellationPolicyUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="menu"
-										id="menu"
-										placeholder="Enter Policy #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="price"
-										id="price"
-										placeholder="Policy Sign #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="middleInitial">Policy Date</label>
-									<input
-										type="date"
-										name="roomNumber"
-										id="roomNumber"
-										placeholder="MM/DD/YYYY"
-										maxLength="10"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="number"
-										name="SSN"
-										id="SSN"
-										placeholder="Cust ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Cancellation Policy
-								</button>
-								<h1>{this.state.responseCancellationPolicyUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete Cancellation Policy </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestCancellationPolicyDelete}>
-								<div className="form-group">
-									<label htmlFor="Result">Policy ID</label>
-									<input
-										type="number"
-										name="menu"
-										id="menu"
-										placeholder="Enter Result ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Cancellation Policy
-								</button>
-								<h1>{this.state.responseCancellationPolicyDeleted}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Add Shop Owner </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestShopOwnerInfo}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="Own_id"
-										id="Own_id"
-										placeholder="Enter Unique ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="firstName"
-										id="firstName"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Shop Owner
-								</button>
-								<h1>{this.state.responseShopOwnerSuccess}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Update Shop Owner </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestShopOwnerUpdate}>
-								<div className="form-group">
-									<input
-										type="number"
-										name="Own_id"
-										id="Own_id"
-										placeholder="Enter Unique ID #"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="firstName"
-										id="firstName"
-										placeholder="First Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotelID">hotelID</label>
-									<select
-										className="form-control input-lg"
-										name="hotelID"
-										id="hotelID"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-									</select>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Shop Owner
-								</button>
-								<h1>{this.state.responseShopOwnerUpdated}</h1>
-							</form>
-						</div>
-					</div>
-				</section>
-
-				<section>
-					<div className="page-header">
-						<h2>Delete Shop Owner </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-6">
-							<form onSubmit={this.requestShopOwnerDelete}>
-								<div className="form-group">
-									<label htmlFor="Result">Shop Owner ID</label>
-									<input
-										type="number"
-										name="Own_id"
-										id="Own_id"
-										placeholder="Enter Owner ID"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Shop Owner
-								</button>
-								<h1>{this.state.responseShopOwnerDeleted}</h1>
 							</form>
 						</div>
 					</div>
