@@ -12,7 +12,7 @@ export default class BookOnline extends Component {
 			address: "",
 			state: "",
 			city: "",
-			// __________________Hotel price__________________
+			// __________________Hotel Price__________________
 			hotelName: "", // primary key
 			hotelID: "", // foreign key
 			price: "",
@@ -81,7 +81,7 @@ export default class BookOnline extends Component {
 			// __________________Room Service__________________
 			menu: "", // primary key
 			roomNumber: "", // foreign key
-			price: "",
+			price: ""
 		};
 	}
 
@@ -90,6 +90,77 @@ export default class BookOnline extends Component {
 			[e.target.name]: e.target.value
 		});
 	};
+
+	// _______________________________Hotel_________________________________________________
+	// Create Hotel
+	// Read Hotel
+	// Update Hotel
+	// Delete Hotel
+	// _______________________________Hotel Price___________________________________________
+	// Create Hotel Price
+	// Read Hotel Price
+	// Update Hotel Price
+	// Delete Hotel Price
+	// _______________________________Rooms_________________________________________________
+	// Create Rooms
+	// Read Rooms
+	// Update Rooms
+	// Delete Rooms
+	// _______________________________Room Type_____________________________________________
+	// Create Room Type
+	// Read Room Type
+	// Update Room Type
+	// Delete Room Type
+	// _______________________________Fitness Center________________________________________
+	// Create Fitness Center
+	// Read Fitness Center
+	// Update Fitness Center
+	// Delete Fitness Center
+	// _______________________________Location______________________________________________
+	// Create Location
+	// Read Location
+	// Update Location
+	// Delete Location
+	// _______________________________Hotel Rating__________________________________________
+	// Create Hotel Rating
+	// Read Hotel Rating
+	// Update Hotel Rating
+	// Delete Hotel Rating
+	// _______________________________Reservations__________________________________________
+	// Create Reservations
+	// Read Reservations
+	// Update Reservations
+	// Delete Reservations
+	// _______________________________Stay Duration_________________________________________
+	// Create Stay Duration
+	// Read Stay Duration
+	// Update Stay Duration
+	// Delete Stay Duration
+	// _______________________________Customer______________________________________________
+	// Create Customer
+	// Read Customer
+	// Update Customer
+	// Delete Customer
+	// _______________________________Room Change___________________________________________
+	// Create Room Change
+	// Read Room Change
+	// Update Room Change
+	// Delete Room Change
+	// _______________________________Hotel Employee________________________________________
+	// Create Hotel Employee
+	// Read Hotel Employee
+	// Update Hotel Employee
+	// Delete Hotel Employee
+	// _______________________________Employee Account______________________________________
+	// Create Employee Account
+	// Read Employee Account
+	// Update Employee Account
+	// Delete Employee Account
+	// _______________________________Room Service__________________________________________
+	// Create Room Service
+	// Read Room Service
+	// Update Room Service
+	// Delete Room Service
 
 	// add reservation
 	requestInfo = e => {
