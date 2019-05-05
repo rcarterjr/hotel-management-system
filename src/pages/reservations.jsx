@@ -119,7 +119,47 @@ export default class BookOnline extends Component {
 	};
 	// Read Hotel
 	// Update Hotel
+	handleUpdateHotel = e => {
+		e.preventDefault();
+		const hotel = {
+			hotelID: this.state.hotelID,
+			hotelName: this.state.hotelName,
+			hotelRating: this.state.hotelRating,
+			address: this.state.address,
+			state: this.state.state,
+			city: this.state.city,
+		};
+		fetch("http://localhost:4000/updatehotel/" + this.state.hotelID, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(hotel)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Hotel
+	requestDeleteHotel = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletehotel/" + this.state.hotelId, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Hotel Price___________________________________________
 	// Create Hotel Price
 	handleCreateHotelPrice = e => {
@@ -145,7 +185,44 @@ export default class BookOnline extends Component {
 	};
 	// Read Hotel Price
 	// Update Hotel Price
+	handleUpdateHotelPrice = e => {
+		e.preventDefault();
+		const price = {
+			hotelID: this.state.hotelID,
+			hotelName: this.state.hotelName,
+			hotelRating: this.state.hotelRating,
+		};
+		fetch("http://localhost:4000/updatehotelprice/" + this.state.hotelID, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(price)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Hotel Price
+	requestDeleteHotelPrice = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletehotelprice/" + this.state.hotelId, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Rooms_________________________________________________
 	// Create Rooms
 	handleCreateRoom = e => {
@@ -172,7 +249,45 @@ export default class BookOnline extends Component {
 	};
 	// Read Rooms
 	// Update Rooms
+	handleUpdateRooms = e => {
+		e.preventDefault();
+		const room = {
+			roomNumber: this.state.roomNumber,
+			hotelName: this.state.hotelName,
+			maxPersons: this.state.maxPersons,
+			price: this.state.price,
+		};
+		fetch("http://localhost:4000/updaterooms/" + this.state.roomNumber, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(room)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Rooms
+	requestDeleteRoom = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deleteroom/" + this.state.roomNumber, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Room Type_____________________________________________
 	// Create Room Type
 	handleCreateRoomType = e => {
@@ -199,7 +314,45 @@ export default class BookOnline extends Component {
 	};
 	// Read Room Type
 	// Update Room Type
+	handleUpdateRoomType = e => {
+		e.preventDefault();
+		const room = {
+			typeOfRoom: this.state.typeOfRoom,
+			roomNumber: this.state.roomNumber,
+			price: this.state.price,
+			vacancy: this.state.vacancy,
+		};
+		fetch("http://localhost:4000/updateroomtype/" + this.state.typeOfRoom, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(room)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Room Type
+	requestDeleteRoomType = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deleteroomtype/" + this.state.typeOfRoom, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Fitness Center________________________________________
 	// Create Fitness Center
 	handleCreateFitnessCenter = e => {
@@ -225,7 +378,44 @@ export default class BookOnline extends Component {
 	};
 	// Read Fitness Center
 	// Update Fitness Center
+	handleUpdateFitnessCenter = e => {
+		e.preventDefault();
+		const fitnessCenter = {
+			machineID: this.state.machineID,
+			hotelID: this.state.hotelID,
+			machineName: this.state.machineName,
+		};
+		fetch("http://localhost:4000/updatefitnesscenter/" + this.state.machineID, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(fitnessCenter)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Fitness Center
+	requestDeleteFitnessCenter = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletefitnesscenter/" + this.state.machineID, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Location______________________________________________
 	// Create Location
 	handleCreateLocation = e => {
@@ -252,7 +442,45 @@ export default class BookOnline extends Component {
 	};
 	// Read Location
 	// Update Location
+	handleUpdateLocation = e => {
+		e.preventDefault();
+		const location = {
+			address: this.state.address,
+			hotelID: this.state.hotelID,
+			city: this.state.city,
+			state: this.state.state,
+		};
+		fetch("http://localhost:4000/updatelocation/" + this.state.address, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(location)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Location
+	requestDeleteLocation = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletelocation/" + this.state.address, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Hotel Rating__________________________________________
 	// Create Hotel Rating
 	handleCreateHotelRating = e => {
@@ -278,7 +506,44 @@ export default class BookOnline extends Component {
 	};
 	// Read Hotel Rating
 	// Update Hotel Rating
+	handleUpdateHotelRating = e => {
+		e.preventDefault();
+		const rating = {
+			hotelID: this.state.hotelID,
+			hotelName: this.state.hotelName,
+			starRating: this.state.starRating,
+		};
+		fetch("http://localhost:4000/updatehotelrating/" + this.state.hotelName, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(rating)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Hotel Rating
+	requestDeleteHotelRating = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletehotelrating/" + this.state.hotelName, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Reservations__________________________________________
 	// Create Reservations
 	handleCreateReservation = e => {
@@ -307,7 +572,47 @@ export default class BookOnline extends Component {
 	};
 	// Read Reservations
 	// Update Reservations
+	handleUpdateReservation = e => {
+		e.preventDefault();
+		const reservation = {
+			reservationID: this.state.reservationID,
+			roomNumber: this.state.roomNumber,
+			currentStatus: this.state.currentStatus,
+			dateIn: this.state.dateIn,
+			dateOut: this.state.dateOut,
+			madeBy: this.state.madeBy,
+		};
+		fetch("http://localhost:4000/updatereservation/" + this.state.reservationID, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(reservation)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Reservations
+	requestDeleteReservation = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletereservation/" + this.state.reservationID, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Stay Duration_________________________________________
 	// Create Stay Duration
 	handleCreateStayDuration = e => {
@@ -327,13 +632,50 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseLocationSuccess: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Read Stay Duration
 	// Update Stay Duration
+	handleUpdateStayDuration = e => {
+		e.preventDefault();
+		const stay = {
+			dayIn: this.state.dayIn,
+			SSN: this.state.SSN,
+			dayOut: this.state.dayOut,
+		};
+		fetch("http://localhost:4000/updatestayduration/" + this.state.dayIn, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(stay)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Stay Duration
+	requestDeleteStayDuratino = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletestayduration/" + this.state.dayIn, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Customer______________________________________________
 	// Create Customer
 	handleCreateCustomer = e => {
@@ -360,13 +702,57 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseLocationSuccess: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Read Customer
 	// Update Customer
+	handleUpdateCustomer = e => {
+		e.preventDefault();
+		const customer = {
+			SSN: this.state.SSN,
+			reservationID: this.state.reservationID,
+			firstName: this.state.firstName,
+			lastName: this.state.lastName,
+			middleInitial: this.state.middleInitial,
+			phone: this.state.phone,
+			address: this.state.address,
+			state: this.state.state,
+			city: this.state.city,
+			sex: this.state.sex,
+		};
+		fetch("http://localhost:4000/updatecustomer/" + this.state.SSN, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(customer)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Customer
+	requestDeleteCustomer = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletecustomer/" + this.state.SSN, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Room Change___________________________________________
 	// Create Room Change
 	handleCreateRoomChange= e => {
@@ -386,13 +772,50 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseLocationSuccess: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Read Room Change
 	// Update Room Change
+	handleUpdateRoomChange = e => {
+		e.preventDefault();
+		const change = {
+			reservationID: this.state.reservationID,
+			SSN: this.state.SSN,
+			roomNumber: this.state.roomNumber,
+		};
+		fetch("http://localhost:4000/updateroomnumber/" + this.state.reservationID, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(change)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Room Change
+	requestDeleteRoomChange = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deleteroomchange/" + this.state.reservationID, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Hotel Employee________________________________________
 	// Create Hotel Employee
 	handleCreateHotelEmployee = e => {
@@ -415,13 +838,53 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseLocationSuccess: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Read Hotel Employee
 	// Update Hotel Employee
+	handleUpdateHotelEmployee = e => {
+		e.preventDefault();
+		const employee = {
+			employeeID: this.state.employeeID,
+			firstName: this.state.firstName,
+			middleInitial: this.state.middleInitial,
+			lastName: this.state.lastName,
+			SSN: this.state.SSN,
+			sex: this.state.sex,
+		};
+		fetch("http://localhost:4000/updatehotelemployee/" + this.state.employeeID, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(employee)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Hotel Employee
+	requestDeleteHotelEmployee = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deletehotelemployee/" + this.state.employeeID, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Employee Account______________________________________
 	// Create Employee Account
 	handleCreateEmployeeAccount = e => {
@@ -443,13 +906,53 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseLocationSuccess: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Read Employee Account
 	// Update Employee Account
+	handleUpdateEmployeeAccount = e => {
+		e.preventDefault();
+		const account = {
+			SSN: this.state.SSN,
+			employeeID: this.state.employeeID,
+			username: this.state.username,
+			pword: this.state.pword,
+			clearanceLevel: this.state.clearanceLevel,
+			city: this.state.address,
+		};
+		fetch("http://localhost:4000/updatehotel/" + this.state.SSN, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(account)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Employee Account
+	requestDeleteEmployeeAccount = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deleteemployeeaccount/" + this.state.SSN, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// _______________________________Room Service__________________________________________
 	// Create Room Service
 	handleCreateRoomService = e => {
@@ -469,13 +972,51 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseLocationSuccess: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
 	// Read Room Service
 	// Update Room Service
+	handleUpdateRoomService = e => {
+		e.preventDefault();
+		const roomService = {
+			menu: this.state.menu,
+			roomNumber: this.state.roomNumber,
+			price: this.state.price,
+		};
+		fetch("http://localhost:4000/updateroomservice/" + this.state.menu, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(roomService)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
 	// Delete Room Service
+	requestDeleteRoomService = e => {
+		e.preventDefault();
+
+		fetch("http://localhost:4000/deleteroomservice/" + this.state.menu, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: undefined
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("RESPONSE: ", data);
+			
+			})
+			.catch(err => console.log("ERROR: ", err));
+	};
+	//  **********************End of Queries*************************************
 
 	// add reservation
 	requestInfo = e => {
@@ -548,7 +1089,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseDeleted: data.success });
+			
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -573,7 +1114,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ address: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -644,7 +1185,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseLocationUpdated: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -664,7 +1205,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseLocationDeleted: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -687,7 +1228,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseInventorySuccess: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -710,7 +1251,7 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseInventoryUpdated: data.success });
+				
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -1348,7 +1889,6 @@ export default class BookOnline extends Component {
 			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
-				this.setState({ responseWaiverPolicyUpdated: data.success });
 			})
 			.catch(err => console.log("ERROR: ", err));
 	};
@@ -1516,7 +2056,7 @@ export default class BookOnline extends Component {
 			<main>
 				<section>
 					<div className="page-header">
-						<h2>Create Reservation </h2>
+						<h2>Create Hotel </h2>
 					</div>
 					<div className="row">
 						<div className="col-md-6">
@@ -1524,9 +2064,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="hotelID"
-										id="hotelID"
-										placeholder="First Name"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -1535,9 +2075,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="hotelName"
-										id="hotelName"
-										placeholder="Last Name"
+										name="hotelID"
+										id="hotelID"
+										placeholder="Hotel ID"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -1545,65 +2085,91 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="price"
-										name="price"
-										id="price"
-										placeholder="price Address"
+										type="text"
+										name="address"
+										id="address"
+										placeholder="Address"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
 									/>
 								</div>
 								<div className="form-group">
+									<label htmlFor="State">State</label>
+									<select
+										className="form-control input-lg"
+										name="State"
+										id="State"
+										required
+										onChange={this.handleChange}
+									>
+										<option value="">Please Select...</option>
+										<option value="AL">AL</option>
+										<option value="AK">AK</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DE">DE</option>
+										<option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="ID">ID</option>
+										<option value="IA">IA</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VT">VT</option>
+										<option value="VA">VA</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
+									</select>
+								</div>
+								<div className="form-group">
 									<input
-										type="tel"
-										name="starRatingNum"
-										id="starRating"
-										placeholder="###-###-####"
+										type="text"
+										name="city"
+										id="city"
+										placeholder="City"
 										maxLength="12"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
 									/>
 								</div>
-								<div className="form-group">
-									<label htmlFor="hotel">hotel</label>
-									<select
-										className="form-control input-lg"
-										name="hotel"
-										id="hotels"
-										required
-										onChange={this.handleChange}
-									>
-										<option value="">Please Select...</option>
-										<option value="Bullet">Bullet</option>
-										<option value="Chris">Chris</option>
-										<option value="Denny">Denny</option>
-										<option value="Tommy">Tommy</option>
-										<option value="Ned">Ned</option>
-										<option value="Walter">Walter</option>
-										<option value="Daenerys">Daenerys</option>
-										<option value="Rick">Rick</option>
-										<option value="Morty">Morty</option>
-										<option value="Peter">Peter</option>
-										<option value="Eric">Eric</option>
-									</select>
-								</div>
-								<div className="form-group">
-									<label htmlFor="hotel">Date</label>
-									<input
-										type="Date"
-										name="date"
-										id="date"
-										placeholder="MM/DD/YYYY"
-										maxLength="10"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
 								<button type="submit" className="btn button btn-lg">
-									Create Reservation
+									Create Hotel
 								</button>
 								<h1>{this.state.responseSuccess}</h1>
 							</form>
