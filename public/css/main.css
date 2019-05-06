@@ -53,7 +53,7 @@ header div.sub-title {
 }
 .button {
 	color: white;
-	background-color: #48a9a6;
+	background-color: rgb(58, 61, 228);
 }
 .completed {
 	background-color: red !important;
