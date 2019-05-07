@@ -2672,7 +2672,7 @@ export default class BookOnline extends Component {
 				</section>
 
 				<section>
-				<div className="page-header">
+					<div className="page-header">
 						<h2>Update Customer </h2>
 					</div>
 					<div className="row">
@@ -3468,7 +3468,6 @@ export default class BookOnline extends Component {
 								<button type="submit" className="btn button btn-lg">
 									Delete Room Service
 								</button>
-								<h1>{this.state.responseResultDeleted}</h1>
 							</form>
 						</div>
 					</div>

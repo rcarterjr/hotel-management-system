@@ -1,12 +1,13 @@
 const app = require('express')()
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 // Create connection
 const db = mysql.createConnection({
     host: 'localhost', //'triton.towson.edu',
     user: 'root', //'rcarte14',
-    password: '12345', //'Cosc*77fe',
+    password: 'password', //'Cosc*77fe',
     database: 'Marriott', // 'rcarte14db',
 })
 
@@ -17,6 +18,10 @@ db.connect(err => {
     }
     console.log('MySql Connected...')
 })
+
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 // Test
 // app.get('/', (req, res) => res.json({ msg: 'Hello' }))
@@ -37,7 +42,6 @@ app.post('/addhotel', (req, res) => {
     let hotel = {
         hotelID: req.body.hotelID,
         hotelName: req.body.hotelName,
-        hotel_rating: req.body.hotel_rating,
         address: req.body.address,
         state: req.body.state,
         city: req.body.city,
@@ -67,7 +71,6 @@ app.patch('/updatehotel/:hotelID', (req, res) => {
     let hotelUpdate = {
         hotelID: req.body.hotelID,
         hotelName: req.body.hotelName,
-        hotel_rating: req.body.hotel_rating,
         address: req.body.address,
         state: req.body.state,
         city: req.body.city,
@@ -767,6 +770,6 @@ app.get('/deleteroomservice/:menu', (req, res) => {
     })
 })
 // ________________________End of Queries________________________________________
-app.listen('3306', () => {
-    console.log('Server started on Port 3306')
+app.listen('4000', () => {
+    console.log('Server started on Port 4000')
 })
