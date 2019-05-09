@@ -92,7 +92,6 @@ app.get('/deletehotel/:id', (req, res) => {
         console.log(result)
         //console.log(result);
         res.status(200).json({ success: 'Hotel Deleted' })
-        //res.send('Reservation Deleted...');
     })
 })
 
@@ -168,7 +167,7 @@ app.post('/addrooms', (req, res) => {
 
 // Read rooms
 app.get('/getrooms', (req, res) => {
-    let sql = 'SELECT * FROM Room'
+    let sql = 'SELECT * FROM Rooms'
     db.query(sql, (err, results) => {
         if (err) throw err
         console.log(results)
@@ -420,8 +419,8 @@ app.post('/addreservations', (req, res) => {
     })
 })
 // Read reservations
-app.get('/reservation', (req, res) => {
-    let sql = 'SELECT * FROM reservations'
+app.get('/getreservation', (req, res) => {
+    let sql = 'SELECT * FROM Reservation'
     db.query(sql, (err, results) => {
         if (err) throw err
         console.log(results)
