@@ -23,19 +23,6 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// Test
-// app.get('/', (req, res) => res.json({ msg: 'Hello' }))
-
-// // Create Db <---- testing pt 2
-// app.get('/createdb', (req, res) => {
-//     let sql = 'CREATE DATABASE Marriott'
-//     db.query(sql, (err, result) => {
-//         if (err) throw err
-//         console.log(result)
-//         res.send('database created')
-//     })
-// })
-
 // _________________________Hotel______________________________________________
 // Create hotel
 app.post('/addhotel', (req, res) => {
@@ -139,7 +126,7 @@ app.patch('/updatehotelprice/:id', (req, res) => {
 
 // Delete hotel price
 app.get('/deletehotelprice/:id', (req, res) => {
-    let sql = `DELETE FROM HotelPrice WHERE hotelID = ?`
+    let sql = `DELETE FROM HotelPrice WHERE hotelName = ?`
     let query = db.query(sql, req.params.id, (err, result) => {
         if (err) throw err
         console.log(result)
@@ -178,8 +165,10 @@ app.get('/getrooms', (req, res) => {
 app.patch('/updaterooms/:id', (req, res) => {
     //let newRooms = 'Updated Rooms'
     let roomsUpdate = {
-        Equip_name: req.body.Equip_name,
-        Price: req.body.Price,
+        roomNumber: req.body.roomNumber,
+        hotelName: req.body.hotelName,
+        maxPersons: req.body.maxPersons,
+        price: req.body.price,
     }
     let sql = `UPDATE Rooms SET ? WHERE roomNumber = ?`
     db.query(sql, [req.body, req.body.roomNumber], (err, result) => {
@@ -240,8 +229,8 @@ app.patch('/updateroomtype/:id', (req, res) => {
     })
 })
 // Delete room type
-app.get('/deleteroomtype/:typeOfRoom', (req, res) => {
-    let sql = `DELETE FROM manager WHERE typeOfRoom = ?`
+app.get('/deleteroomtype/:id', (req, res) => {
+    let sql = `DELETE FROM RoomType WHERE typeOfRoom = ?`
     db.query(sql, req.params.id, (err, result) => {
         if (err) throw err
         console.log(result)
@@ -391,7 +380,7 @@ app.patch('/updatehotelrating/:id', (req, res) => {
 })
 
 // Delete hotel rating
-app.get('/deletehotelrating/:hotelName', (req, res) => {
+app.get('/deletehotelrating/:id', (req, res) => {
     let sql = `DELETE FROM HotelRating WHERE hotelName = ?`
     db.query(sql, req.params.id, (err, result) => {
         if (err) throw err
@@ -402,7 +391,7 @@ app.get('/deletehotelrating/:hotelName', (req, res) => {
 
 //_______________________________Reservations____________________________________________
 // Create reservations
-app.post('/addreservations', (req, res) => {
+app.post('/addreservation', (req, res) => {
     let reservation = {
         reservationID: req.body.reservationID,
         roomNumber: req.body.roomNumber,
@@ -462,6 +451,8 @@ app.post('/addstayduration', (req, res) => {
         dayIn: req.body.dayIn,
         SSN: req.body.SSN,
         dayOut: req.body.dayOut,
+        timeIn: req.body.timeIn,
+        timeOut: req.body.timeOut,
     }
     let sql = 'INSERT INTO StayDuration SET ?'
     db.query(sql, stay, (err, result) => {
@@ -491,8 +482,7 @@ app.patch('/updatestayduration/:id', (req, res) => {
     db.query(sql, [req.body, req.body.dayIn], (err, result) => {
         if (err) throw err
         console.log(result)
-        //res.send('Merchandise updated...');
-        res.status(200).json({ success: 'Merchandise Updated' })
+        res.status(200).json({ success: 'StayDuration Updated' })
     })
 })
 // Delete stay duration
@@ -552,10 +542,9 @@ app.patch('/updatecustomer/:id', (req, res) => {
         sex: req.body.sex,
     }
     let sql = `UPDATE Customer SET ? WHERE SSN = ?`
-    db.query(sql, [req.body, req.body.SSN], (err, result) => {
+    db.query(sql, [req.body, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
-        //res.send('Customer Info updated...');
         res.status(200).json({ success: 'Customer Updated' })
     })
 })
@@ -599,8 +588,8 @@ app.patch('/updateroomchange/:id', (req, res) => {
         SSN: req.body.SSN,
         roomNumber: req.body.roomNumber,
     }
-    let sql = `UPDATE Customer SET ? WHERE SSN = ?`
-    db.query(sql, [req.body, req.body.reservationID], (err, result) => {
+    let sql = `UPDATE Customer SET ? WHERE reservationID = ?`
+    db.query(sql, [req.body, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'RoomChange Updated' })

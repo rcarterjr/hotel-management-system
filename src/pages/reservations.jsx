@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+// We will use this line to divide the tables
 const ColoredLine = ({ color }) => (
     <hr
         style={{
@@ -60,6 +61,8 @@ export default class BookOnline extends Component {
 			dayIn: "", // primary key
 			SSN: "", // foreign key
 			dayOut: "",
+			timeIn: "",
+			timeOut: "",
 			// __________________Customer__________________
 			SSN: "", // primary key
 			reservationID: "", // foreign key
@@ -247,7 +250,7 @@ export default class BookOnline extends Component {
 	handleDeleteHotelPrice = e => {
 		e.preventDefault();
 
-		fetch("http://localhost:4000/deletehotelprice/" + this.state.hotelId, {
+		fetch("http://localhost:4000/deletehotelprice/" + this.state.hotelName, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json"
@@ -954,7 +957,7 @@ export default class BookOnline extends Component {
 			roomNumber: this.state.roomNumber
 		};
 		fetch(
-			"http://localhost:4000/updateroomnumber/" + this.state.reservationID,
+			"http://localhost:4000/updateroomchange/" + this.state.reservationID,
 			{
 				method: "PATCH",
 				headers: {
@@ -2759,150 +2762,6 @@ export default class BookOnline extends Component {
 				<ColoredLine color="red" />
 				<section style={{width: '50%'}}>
 					<div className="page-header">
-						<h2>Create Stay Duration</h2>
-					</div>
-					<div className="row">
-						<div className="col-md-8">
-							<form onSubmit={this.handleCreateStayDuration}>
-								<div className="form-group">
-									<input
-										type="text"
-										name="dayIn"
-										id="dayIn"
-										placeholder="Day In"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="dayOut"
-										id="dayOut"
-										placeholder="Day Out"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="SSN"
-										id="SSN"
-										placeholder="SSN"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Create Stay Duration
-								</button>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section style={{width: '50%'}}>
-					<div className="page-header">
-						<h2>Update Stay Duration</h2>
-					</div>
-					<div className="row">
-						<div className="col-md-8">
-							<form onSubmit={this.handleUpdateStayDuration}>
-								<div className="form-group">
-									<input
-										type="text"
-										name="dayIn"
-										id="dayIn"
-										placeholder="Day In"
-										maxLength="12"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="dayOut"
-										id="dayOut"
-										placeholder="Day Out"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="SSN"
-										id="SSN"
-										placeholder="SSN"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Update Stay Duration
-								</button>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section style={{width: '50%'}}>
-					<div className="page-header">
-						<h2>Delete Stay Duration </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-8">
-							<form onSubmit={this.handleDeleteStayDuratino}>
-								<div className="form-group">
-									<input
-										type="text"
-										name="dayIn"
-										id="dayIn"
-										placeholder="Day In"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<button type="submit" className="btn button btn-lg">
-									Delete Stay Duration
-								</button>
-							</form>
-						</div>
-					</div>
-				</section>
-				<section style={{width: '50%'}}>
-					<div className="page-header">
-						<h2>Get Stay Durations </h2>
-					</div>
-					<div className="row">
-						<div className="col-md-8">
-							<form>
-								<div className="form-group">
-									<input
-										type="button"
-										name="hotelID"
-										id="hotelID"
-										value="Get Stay Durations"
-										className="btn button btn-lg"
-										required
-										onClick={this.handleReadStayDuration}
-									/>
-								</div>
-							</form>
-						</div>
-					</div>
-				</section>
-				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
-					<div className="page-header">
 						<h2>Create Customer</h2>
 					</div>
 					<div className="row">
@@ -3259,7 +3118,7 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-8">
-							<form onSubmit={this.handleDeleteRoomChange}>
+							<form onSubmit={this.handleDeleteCustomer}>
 								<div className="form-group">
 									<input
 										type="text"
@@ -3272,7 +3131,7 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<button type="submit" className="btn button btn-lg">
-									Delete Room Change
+									Delete Customer
 								</button>
 							</form>
 						</div>
@@ -3280,7 +3139,7 @@ export default class BookOnline extends Component {
 				</section>
 				<section style={{width: '50%'}}>
 					<div className="page-header">
-						<h2>Get Room Changes </h2>
+						<h2>Get Customer </h2>
 					</div>
 					<div className="row">
 						<div className="col-md-8">
@@ -3290,10 +3149,198 @@ export default class BookOnline extends Component {
 										type="button"
 										name="hotelID"
 										id="hotelID"
-										value="Get Room Changes"
+										value="Get Customers"
 										className="btn button btn-lg"
 										required
-										onClick={this.handleReadRoomChange}
+										onClick={this.handleReadCustomer}
+									/>
+								</div>
+							</form>
+						</div>
+					</div>
+				</section>
+				<ColoredLine color="red" />
+				<section style={{width: '50%'}}>
+					<div className="page-header">
+						<h2>Create Stay Duration</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-8">
+							<form onSubmit={this.handleCreateStayDuration}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dayIn"
+										id="dayIn"
+										placeholder="Day In"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dayOut"
+										id="dayOut"
+										placeholder="Day Out"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="timeIn"
+										id="timeIn"
+										placeholder="Check-in Time"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="timeOut"
+										id="timeOut"
+										placeholder="Checkout Time"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Create Stay Duration
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section style={{width: '50%'}}>
+					<div className="page-header">
+						<h2>Update Stay Duration</h2>
+					</div>
+					<div className="row">
+						<div className="col-md-8">
+							<form onSubmit={this.handleUpdateStayDuration}>
+							<div className="form-group">
+									<input
+										type="text"
+										name="dayIn"
+										id="dayIn"
+										placeholder="Day In"
+										maxLength="12"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dayOut"
+										id="dayOut"
+										placeholder="Day Out"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="timeIn"
+										id="timeIn"
+										placeholder="Check-in Time"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="timeOut"
+										id="timeOut"
+										placeholder="Checkout Time"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="form-group">
+									<input
+										type="text"
+										name="SSN"
+										id="SSN"
+										placeholder="SSN"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Update Stay Duration
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section style={{width: '50%'}}>
+					<div className="page-header">
+						<h2>Delete Stay Duration </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-8">
+							<form onSubmit={this.handleDeleteStayDuratino}>
+								<div className="form-group">
+									<input
+										type="text"
+										name="dayIn"
+										id="dayIn"
+										placeholder="Day In"
+										className="form-control input-lg"
+										required
+										onChange={this.handleChange}
+									/>
+								</div>
+								<button type="submit" className="btn button btn-lg">
+									Delete Stay Duration
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+				<section style={{width: '50%'}}>
+					<div className="page-header">
+						<h2>Get Stay Durations </h2>
+					</div>
+					<div className="row">
+						<div className="col-md-8">
+							<form>
+								<div className="form-group">
+									<input
+										type="button"
+										name="hotelID"
+										id="hotelID"
+										value="Get Stay Durations"
+										className="btn button btn-lg"
+										required
+										onClick={this.handleReadStayDuration}
 									/>
 								</div>
 							</form>
@@ -3355,7 +3402,7 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-8">
-							<form onSubmit={this.handleCreateRoomChange}>
+							<form onSubmit={this.handleUpdateRoomChange}>
 								<div className="form-group">
 									<input
 										type="text"
@@ -3390,7 +3437,7 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<button type="submit" className="btn button btn-lg">
-									Create Room Change
+									Update Room Change
 								</button>
 							</form>
 						</div>
