@@ -123,7 +123,6 @@ export default class BookOnline extends Component {
 		const hotel = {
 			hotelID: this.state.hotelID,
 			hotelName: this.state.hotelName,
-			hotelRating: this.state.hotelRating,
 			address: this.state.address,
 			state: this.state.state,
 			city: this.state.city
@@ -145,7 +144,7 @@ export default class BookOnline extends Component {
 	handleDeleteHotel = e => {
 		e.preventDefault();
 
-		fetch("http://localhost:4000/deletehotel/" + this.state.hotelId, {
+		fetch("http://localhost:4000/deletehotel/" + this.state.hotelID, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json"
@@ -187,7 +186,7 @@ export default class BookOnline extends Component {
 		const price = {
 			hotelID: this.state.hotelID,
 			hotelName: this.state.hotelName,
-			hotelRating: this.state.hotelRating
+			price: this.state.price
 		};
 		fetch("http://localhost:4000/updatehotelprice/" + this.state.hotelID, {
 			method: "PATCH",
@@ -229,7 +228,7 @@ export default class BookOnline extends Component {
 			maxPersons: this.state.maxPersons,
 			price: this.state.price
 		};
-		fetch("http://localhost:4000/addroom", {
+		fetch("http://localhost:4000/addrooms", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -289,7 +288,6 @@ export default class BookOnline extends Component {
 		let type = {
 			typeOfRoom: this.state.typeOfRoom,
 			roomNumber: this.state.roomNumber,
-			price: this.state.price,
 			vacancy: this.state.vacancy
 		};
 		fetch("http://localhost:4000/addroomtype", {
@@ -312,7 +310,6 @@ export default class BookOnline extends Component {
 		const room = {
 			typeOfRoom: this.state.typeOfRoom,
 			roomNumber: this.state.roomNumber,
-			price: this.state.price,
 			vacancy: this.state.vacancy
 		};
 		fetch("http://localhost:4000/updateroomtype/" + this.state.typeOfRoom, {
@@ -812,7 +809,7 @@ export default class BookOnline extends Component {
 		e.preventDefault();
 		let employee = {
 			employeeID: this.state.employeeID,
-			firstName: this.state.hotelID,
+			firstName: this.state.firstName,
 			middleInitial: this.state.middleInitial,
 			lastName: this.state.lastName,
 			SSN: this.state.SSN,
@@ -1586,17 +1583,6 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="price"
-										id="price"
-										placeholder="Price"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
 										name="vacancy"
 										id="vacancy"
 										placeholder="Vacancy"
@@ -1637,17 +1623,6 @@ export default class BookOnline extends Component {
 										name="roomNumber"
 										id="roomNumber"
 										placeholder="Room Number"
-										className="form-control input-lg"
-										required
-										onChange={this.handleChange}
-									/>
-								</div>
-								<div className="form-group">
-									<input
-										type="text"
-										name="price"
-										id="price"
-										placeholder="Price"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -1752,7 +1727,7 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.handleCreateFitnessCenter}>
+							<form onSubmit={this.handleUpdateFitnessCenter}>
 								<div className="form-group">
 									<input
 										type="text"
@@ -1844,7 +1819,7 @@ export default class BookOnline extends Component {
 										type="text"
 										name="hotelID"
 										id="hotelID"
-										placeholder="First Name"
+										placeholder="Hotel ID"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -1953,7 +1928,7 @@ export default class BookOnline extends Component {
 										type="text"
 										name="hotelID"
 										id="hotelID"
-										placeholder="First Name"
+										placeholder="Hotel ID"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -2047,7 +2022,7 @@ export default class BookOnline extends Component {
 							<form onSubmit={this.handleDeleteLocation}>
 								<div className="form-group">
 									<input
-										type="number"
+										type="text"
 										name="address"
 										id="address"
 										placeholder="Address"
@@ -2121,10 +2096,10 @@ export default class BookOnline extends Component {
 							<form onSubmit={this.handleUpdateHotelRating}>
 								<div className="form-group">
 									<input
-										type="number"
-										name="machineName"
-										id="machineName"
-										placeholder="Enter ID #"
+										type="text"
+										name="hotelName"
+										id="hotelName"
+										placeholder="Hotel Name"
 										maxLength="12"
 										className="form-control input-lg"
 										required
@@ -2134,9 +2109,9 @@ export default class BookOnline extends Component {
 								<div className="form-group">
 									<input
 										type="text"
-										name="address"
-										id="address"
-										placeholder="First Name"
+										name="hotelID"
+										id="hotelID"
+										placeholder="Hotel ID"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -2144,10 +2119,9 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="password"
-										name="city"
-										id="city"
-										placeholder="Last Name"
+										name="starRating"
+										id="starRating"
+										placeholder="Star Rating"
 										className="form-control input-lg"
 										required
 										onChange={this.handleChange}
@@ -2170,7 +2144,7 @@ export default class BookOnline extends Component {
 							<form onSubmit={this.handleDeleteHotelRating}>
 								<div className="form-group">
 									<input
-										type="number"
+										type="text"
 										name="hotelName"
 										id="hotelName"
 										placeholder="Hotel Name"
@@ -2273,7 +2247,7 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.handleCreateReservation}>
+							<form onSubmit={this.handleUpdateReservation}>
 								<div className="form-group">
 									<input
 										type="text"
@@ -2341,7 +2315,7 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<button type="submit" className="btn button btn-lg">
-									Create Reservation
+									Update Reservation
 								</button>
 							</form>
 						</div>
@@ -2356,7 +2330,7 @@ export default class BookOnline extends Component {
 							<form onSubmit={this.handleDeleteReservation}>
 								<div className="form-group">
 									<input
-										type="number"
+										type="text"
 										name="reservationID"
 										id="reservationID"
 										placeholder="Reservation ID"
@@ -2382,7 +2356,7 @@ export default class BookOnline extends Component {
 							<form onSubmit={this.handleCreateStayDuration}>
 								<div className="form-group">
 									<input
-										type="number"
+										type="text"
 										name="dayIn"
 										id="dayIn"
 										placeholder="Day In"
@@ -2430,7 +2404,7 @@ export default class BookOnline extends Component {
 							<form onSubmit={this.handleUpdateStayDuration}>
 								<div className="form-group">
 									<input
-										type="number"
+										type="text"
 										name="dayIn"
 										id="dayIn"
 										placeholder="Day In"
@@ -2478,7 +2452,7 @@ export default class BookOnline extends Component {
 							<form onSubmit={this.handleDeleteStayDuratino}>
 								<div className="form-group">
 									<input
-										type="number"
+										type="text"
 										name="dayIn"
 										id="dayIn"
 										placeholder="Day In"
@@ -2571,7 +2545,7 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="number"
+										type="text"
 										name="address"
 										id="address"
 										placeholder="Address"
@@ -2677,7 +2651,7 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.handleCreateCustomer}>
+							<form onSubmit={this.handleUpdateCustomer}>
 								<div className="form-group">
 									<input
 										type="text"
@@ -2747,7 +2721,7 @@ export default class BookOnline extends Component {
 								</div>
 								<div className="form-group">
 									<input
-										type="number"
+										type="text"
 										name="address"
 										id="address"
 										placeholder="Address"
@@ -3405,7 +3379,7 @@ export default class BookOnline extends Component {
 					</div>
 					<div className="row">
 						<div className="col-md-6">
-							<form onSubmit={this.handleCreateRoomService}>
+							<form onSubmit={this.handleUpdateRoomService}>
 								<div className="form-group">
 									<input
 										type="text"
