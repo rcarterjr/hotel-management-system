@@ -1,5 +1,15 @@
 import React, { Component } from "react";
 
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 5
+        }}
+    />
+);
+
 export default class BookOnline extends Component {
 	constructor(props) {
 		super(props);
@@ -1278,7 +1288,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Hotel Price </h2>
@@ -1403,7 +1413,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Room </h2>
@@ -1550,7 +1560,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Room Type </h2>
@@ -1672,7 +1682,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Fitness Center </h2>
@@ -1795,7 +1805,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Location </h2>
@@ -2038,7 +2048,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Hotel Rating </h2>
@@ -2160,7 +2170,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Reservation </h2>
@@ -2346,7 +2356,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Stay Duration</h2>
@@ -2468,7 +2478,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Customer</h2>
@@ -2846,7 +2856,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Room Change</h2>
@@ -2968,7 +2978,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Hotel Employee </h2>
@@ -3158,7 +3168,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Employee Account </h2>
@@ -3324,7 +3334,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-
+				<ColoredLine color="red" />
 				<section>
 					<div className="page-header">
 						<h2>Create Room Service</h2>
@@ -3414,7 +3424,7 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<button type="submit" className="btn button btn-lg">
-									Create Room Service
+									Update Room Service
 								</button>
 							</form>
 						</div>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Bill_Marriot from "../img/artists/bill_marriott.jpg";
-import Seth from "../img/artists/seth.jpg";
-import Arne_Sorenson from "../img/artists/CEO.jpg";
-import Lester from "../img/artists/lester.jpg";
+import Bill_Marriot from "../img/employees/bill_marriott.jpg";
+import Seth from "../img/employees/seth.jpg";
+import Russell from "../img/employees/realCEO.jpeg";
+import Lester from "../img/employees/lester.jpg";
 // if we want to add more https://news.marriott.com/p/executive-leadership/
 
 class Artists extends Component {
@@ -59,27 +59,21 @@ class Artists extends Component {
 											</div>
 											<h1>Bill Marriott</h1>
 											<h2>Owner</h2>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing
-												elit.
-											</p>
+											<p>I started this company from nothing.</p>
 										</div>
 
 										<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
 											<div class="img-box">
 												<img
-													src={Arne_Sorenson}
+													src={Russell}
 													alt=""
 													style={{ width: 210, height: 210 }}
 													class="img-responsive"
 												/>
 											</div>
-											<h1>Arne Sorenson</h1>
+											<h1>Russell Carter</h1>
 											<h2>CEO</h2>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing
-												elit.
-											</p>
+											<p>Your grandma's favorite CEO.</p>
 										</div>
 
 										<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
@@ -91,12 +85,9 @@ class Artists extends Component {
 													class="img-responsive"
 												/>
 											</div>
-											<h1>Seth</h1>
-											<h2>Hard worker</h2>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing
-												elit.
-											</p>
+											<h1>Seth Vinson</h1>
+											<h2>CTO</h2>
+											<p>I'm just tryna pass lol.</p>
 										</div>
 
 										<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
@@ -108,12 +99,9 @@ class Artists extends Component {
 													class="img-responsive"
 												/>
 											</div>
-											<h1>Lester</h1>
-											<h2>Hard worker</h2>
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing
-												elit.
-											</p>
+											<h1>Lester Docker</h1>
+											<h2>COO</h2>
+											<p>I need a new job.</p>
 										</div>
 									</div>
 								</div>
