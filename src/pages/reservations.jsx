@@ -1984,7 +1984,7 @@ export default class BookOnline extends Component {
 										type="button"
 										name="hotelID"
 										id="hotelID"
-										value="GET"
+										value="Get Room Types"
 										className="btn button btn-lg"
 										required
 										onClick={this.handleReadRoomType}
@@ -3790,7 +3790,7 @@ export default class BookOnline extends Component {
 									/>
 								</div>
 								<button type="submit" className="btn button btn-lg">
-									Update Hotel Employee
+									Update Employee Account
 								</button>
 							</form>
 						</div>
@@ -3968,7 +3968,7 @@ export default class BookOnline extends Component {
 				</section>
 				<section style={{width: '50%'}}>
 					<div className="page-header">
-						<h2>Get Employee Accounts </h2>
+						<h2>Get Room Services </h2>
 					</div>
 					<div className="row">
 						<div className="col-md-8">
