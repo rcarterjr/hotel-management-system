@@ -73,7 +73,7 @@ class Artists extends Component {
 											</div>
 											<h1>Russell Carter</h1>
 											<h2>CEO</h2>
-											<p>Your grandma's favorite CEO.</p>
+											<p>With great power comes great responsibility.</p>
 										</div>
 
 										<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
