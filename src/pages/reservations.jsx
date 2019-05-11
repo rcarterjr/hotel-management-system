@@ -2,57 +2,62 @@ import React, { Component } from "react";
 
 // We will use this line to divide the tables
 const ColoredLine = ({ color }) => (
-    <hr
-        style={{
-            color: color,
-            backgroundColor: color,
-            height: 5
-        }}
-    />
+	<hr
+		style={{
+			color: color,
+			backgroundColor: color,
+			height: 5
+		}}
+	/>
 );
 
 export default class BookOnline extends Component {
 	constructor(props) {
 		super(props);
 
+		/* 
+		   Duplicates are commented out to remove the warnings but 
+		   we left them there to mimic our database 
+		*/
+
 		this.state = {
 			// __________________ Hotel__________________
-			hotelID: "", // primary key
+			hotelID: 0, // primary key
 			hotelName: "",
 			hotelRating: "",
 			address: "",
 			state: "",
 			city: "",
 			// __________________Hotel Price__________________
-			hotelName: "", // primary key
-			hotelID: "", // foreign key
+			//hotelName: "", // primary key
+			//hotelID: "", // foreign key
 			price: "",
 			// __________________Rooms__________________
 			roomNumber: "", // primary key
-			hotelName: "", // foreign key
+			//hotelName: "", // foreign key
 			maxPersons: "",
-			price: "",
+			//price: "",
 			// __________________Room Type__________________
 			typeOfRoom: "", // primary key
-			roomNumber: "", // foreign key
-			price: "",
+			//roomNumber: "", // foreign key
+			//price: "",
 			vacancy: "",
 			// __________________Fitness Center__________________
 			machineID: "", // primary key
-			hotelID: "", // foreign key
+			//hotelID: "", // foreign key
 			machineName: "",
 			// __________________Location__________________
-			address: "", // primary key
-			hotelID: "", // foreign key
-			city: "",
-			state: "",
+			//address: "", // primary key
+			//hotelID: "", // foreign key
+			//city: "",
+			//state: "",
 			// __________________Hotel Rating__________________
-			hotelName: "", // primary key
-			hotelID: "", // foreign key
+			//hotelName: "", // primary key
+			//hotelID: "", // foreign key
 			starRating: "",
 			// __________________Reservations__________________
 			reservationID: "", // primary key
-			roomNumber: "", // foreign key
+			//roomNumber: "", // foreign key
 			currentStatus: "",
 			dateIn: "",
 			dateOut: "",
@@ -64,37 +69,37 @@ export default class BookOnline extends Component {
 			timeIn: "",
 			timeOut: "",
 			// __________________Customer__________________
-			SSN: "", // primary key
-			reservationID: "", // foreign key
+			//SSN: "", // primary key
+			//reservationID: "", // foreign key
 			firstName: "",
 			middleInitial: "",
 			lastName: "",
-			address: "",
+			//address: "",
 			phone: "",
-			city: "",
-			state: "",
+			//city: "",
+			//state: "",
 			sex: "",
 			// __________________Room Change__________________
-			reservationID: "", // primary key
-			SSN: "", // foreign key
-			roomNumber: "",
+			//reservationID: "", // primary key
+			//SSN: "", // foreign key
+			//roomNumber: "",
 			// __________________Hotel Employee__________________
 			employeeID: "", // primary key
-			firstName: "",
-			lastName: "",
-			middleInitial: "",
-			SSN: "",
-			sex: "",
+			//firstName: "",
+			//lastName: "",
+			//middleInitial: "",
+			//SSN: "",
+			//sex: "",
 			// __________________Employee Account__________________
-			SSN: "", // primary key
-			employeeID: "", // foreign key
+			//SSN: "", // primary key
+			//employeeID: "", // foreign key
 			username: "",
 			pword: "",
 			clearanceLevel: "",
 			// __________________Room Service__________________
-			menu: "", // primary key
-			roomNumber: "", // foreign key
-			price: ""
+			menu: "" // primary key
+			//roomNumber: "", // foreign key
+			//price: ""
 		};
 	}
 
@@ -108,6 +113,11 @@ export default class BookOnline extends Component {
 	// Create Hotel
 	handleCreateHotel = e => {
 		e.preventDefault();
+
+		this.setState({
+			hotelID: Math.floor(Math.random() * 1000)
+		});
+
 		let hotel = {
 			hotelID: this.state.hotelID,
 			hotelName: this.state.hotelName,
@@ -138,25 +148,23 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Hotel
 	handleUpdateHotel = e => {
 		e.preventDefault();
 		const hotel = {
-			hotelID: this.state.hotelID,
 			hotelName: this.state.hotelName,
 			address: this.state.address,
 			state: this.state.state,
 			city: this.state.city
 		};
-		fetch("http://localhost:4000/updatehotel/" + this.state.hotelID, {
+		fetch("http://localhost:4000/updatehotel/" + this.state.hotelName, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json"
@@ -217,14 +225,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Hotel Price
 	handleUpdateHotelPrice = e => {
 		e.preventDefault();
@@ -295,14 +302,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Rooms
 	handleUpdateRooms = e => {
 		e.preventDefault();
@@ -373,14 +379,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Room Type
 	handleUpdateRoomType = e => {
 		e.preventDefault();
@@ -450,14 +455,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Fitness Center
 	handleUpdateFitnessCenter = e => {
 		e.preventDefault();
@@ -528,14 +532,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Location
 	handleUpdateLocation = e => {
 		e.preventDefault();
@@ -606,14 +609,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Hotel Rating
 	handleUpdateHotelRating = e => {
 		e.preventDefault();
@@ -686,14 +688,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Reservations
 	handleUpdateReservation = e => {
 		e.preventDefault();
@@ -772,14 +773,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Stay Duration
 	handleUpdateStayDuration = e => {
 		e.preventDefault();
@@ -856,14 +856,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Customer
 	handleUpdateCustomer = e => {
 		e.preventDefault();
@@ -940,14 +939,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Room Change
 	handleUpdateRoomChange = e => {
 		e.preventDefault();
@@ -1026,14 +1024,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Hotel Employee
 	handleUpdateHotelEmployee = e => {
 		e.preventDefault();
@@ -1114,14 +1111,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Employee Account
 	handleUpdateEmployeeAccount = e => {
 		e.preventDefault();
@@ -1194,14 +1190,13 @@ export default class BookOnline extends Component {
 				"Content-Type": "application/json"
 			},
 			body: undefined
-
 		})
-		.then(response => response.json())
+			.then(response => response.json())
 			.then(data => {
 				console.log("RESPONSE: ", data);
 			})
 			.catch(err => console.log("ERROR: ", err));
-	}
+	};
 	// Update Room Service
 	handleUpdateRoomService = e => {
 		e.preventDefault();
@@ -1245,7 +1240,7 @@ export default class BookOnline extends Component {
 	render() {
 		return (
 			<main>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Hotel </h2>
 					</div>
@@ -1263,7 +1258,7 @@ export default class BookOnline extends Component {
 										onChange={this.handleChange}
 									/>
 								</div>
-								<div className="form-group">
+								{/* <div className="form-group">
 									<input
 										type="text"
 										name="hotelID"
@@ -1273,7 +1268,7 @@ export default class BookOnline extends Component {
 										required
 										onChange={this.handleChange}
 									/>
-								</div>
+								</div> */}
 								<div className="form-group">
 									<input
 										type="text"
@@ -1367,7 +1362,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Hotel </h2>
 					</div>
@@ -1385,7 +1380,7 @@ export default class BookOnline extends Component {
 										onChange={this.handleChange}
 									/>
 								</div>
-								<div className="form-group">
+								{/* <div className="form-group">
 									<input
 										type="text"
 										name="hotelID"
@@ -1395,7 +1390,7 @@ export default class BookOnline extends Component {
 										required
 										onChange={this.handleChange}
 									/>
-								</div>
+								</div> */}
 								<div className="form-group">
 									<input
 										type="text"
@@ -1488,7 +1483,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Hotel </h2>
 					</div>
@@ -1515,7 +1510,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Hotels </h2>
 					</div>
@@ -1538,7 +1533,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Hotel Price </h2>
 					</div>
@@ -1588,7 +1583,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Hotel Price </h2>
 					</div>
@@ -1637,7 +1632,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Hotel Price </h2>
 					</div>
@@ -1662,7 +1657,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Hotel Prices </h2>
 					</div>
@@ -1685,7 +1680,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Room </h2>
 					</div>
@@ -1746,7 +1741,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Room </h2>
 					</div>
@@ -1806,7 +1801,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Room </h2>
 					</div>
@@ -1831,7 +1826,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Rooms </h2>
 					</div>
@@ -1854,7 +1849,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Room Type </h2>
 					</div>
@@ -1902,7 +1897,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Room Type</h2>
 					</div>
@@ -1950,7 +1945,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Room Type </h2>
 					</div>
@@ -1975,7 +1970,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Room Types </h2>
 					</div>
@@ -1998,7 +1993,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Fitness Center </h2>
 					</div>
@@ -2046,7 +2041,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Fitness Center </h2>
 					</div>
@@ -2094,7 +2089,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Fitness Center </h2>
 					</div>
@@ -2120,7 +2115,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Fitness Centers </h2>
 					</div>
@@ -2143,7 +2138,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Location </h2>
 					</div>
@@ -2252,7 +2247,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Location </h2>
 					</div>
@@ -2360,7 +2355,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Location </h2>
 					</div>
@@ -2385,7 +2380,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Locations </h2>
 					</div>
@@ -2408,7 +2403,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Hotel Rating </h2>
 					</div>
@@ -2456,7 +2451,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Hotel Rating</h2>
 					</div>
@@ -2504,7 +2499,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Hotel Rating</h2>
 					</div>
@@ -2529,7 +2524,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Hotel Ratings </h2>
 					</div>
@@ -2552,7 +2547,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Reservation </h2>
 					</div>
@@ -2632,7 +2627,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Reservation </h2>
 					</div>
@@ -2712,7 +2707,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Reservation </h2>
 					</div>
@@ -2737,7 +2732,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Reservations </h2>
 					</div>
@@ -2760,7 +2755,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Customer</h2>
 					</div>
@@ -2936,7 +2931,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Customer </h2>
 					</div>
@@ -3112,7 +3107,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Customer </h2>
 					</div>
@@ -3137,7 +3132,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Customer </h2>
 					</div>
@@ -3160,7 +3155,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Stay Duration</h2>
 					</div>
@@ -3230,14 +3225,14 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Stay Duration</h2>
 					</div>
 					<div className="row">
 						<div className="col-md-8">
 							<form onSubmit={this.handleUpdateStayDuration}>
-							<div className="form-group">
+								<div className="form-group">
 									<input
 										type="text"
 										name="dayIn"
@@ -3300,7 +3295,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Stay Duration </h2>
 					</div>
@@ -3325,7 +3320,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Stay Durations </h2>
 					</div>
@@ -3348,7 +3343,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Room Change</h2>
 					</div>
@@ -3396,7 +3391,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Room Change</h2>
 					</div>
@@ -3444,7 +3439,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Room Change </h2>
 					</div>
@@ -3469,7 +3464,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Room Changes </h2>
 					</div>
@@ -3492,7 +3487,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Hotel Employee </h2>
 					</div>
@@ -3574,7 +3569,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Hotel Employee </h2>
 					</div>
@@ -3656,7 +3651,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Hotel Employee </h2>
 					</div>
@@ -3681,7 +3676,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Hotel Employees </h2>
 					</div>
@@ -3704,7 +3699,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Employee Account </h2>
 					</div>
@@ -3774,7 +3769,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Employee Account</h2>
 					</div>
@@ -3844,7 +3839,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Employee Account </h2>
 					</div>
@@ -3869,7 +3864,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Employee Accounts </h2>
 					</div>
@@ -3892,7 +3887,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 				<ColoredLine color="red" />
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Create Room Service</h2>
 					</div>
@@ -3940,7 +3935,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Update Room Service </h2>
 					</div>
@@ -3988,7 +3983,7 @@ export default class BookOnline extends Component {
 					</div>
 				</section>
 
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Delete Room Service </h2>
 					</div>
@@ -4013,7 +4008,7 @@ export default class BookOnline extends Component {
 						</div>
 					</div>
 				</section>
-				<section style={{width: '50%'}}>
+				<section style={{ width: "50%" }}>
 					<div className="page-header">
 						<h2>Get Room Services </h2>
 					</div>

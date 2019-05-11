@@ -53,17 +53,14 @@ app.get('/gethotel', (req, res) => {
 
 // Update hotel
 app.patch('/updatehotel/:id', (req, res) => {
-    let newHotel = 'Updated Hotel'
-
     let hotelUpdate = {
-        hotelID: req.body.hotelID,
         hotelName: req.body.hotelName,
         address: req.body.address,
         state: req.body.state,
         city: req.body.city,
     }
 
-    let sql = `UPDATE Hotel SET ? WHERE hotelID = ?`
+    let sql = `UPDATE Hotel SET ? WHERE hotelName = ?`
     db.query(sql, [hotelUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
