@@ -5,56 +5,24 @@ import Russell from "../img/employees/realCEO.jpeg";
 import Lester from "../img/employees/lester.jpg";
 // if we want to add more https://news.marriott.com/p/executive-leadership/
 
-class Artists extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			data: [],
-			isLoading: true
-		};
-	}
-
-	componentDidMount() {
-		this.fetchData();
-	}
-
-	fetchData = () => {
-		fetch("http://localhost:4000/getartists")
-			.then(response => response.json())
-			.then(parsedJSON =>
-				parsedJSON.results.map(artist => ({
-					Fname: artist.Fname,
-					Lname: artist.Lname,
-					Artist_rating: artist.Artist_rating
-				}))
-			)
-			.then(artists =>
-				this.setState({
-					data: artists
-				})
-			)
-			.catch(err => console.log("Error", err));
-	};
-
+class About extends Component {
 	render() {
-		const { data } = this.state;
 		return (
 			<main>
-				<section class="team">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-10 col-md-offset-1">
-								<div class="col-lg-12">
-									<h6 class="description">OUR TEAM</h6>
-									<div class="row pt-md">
-										<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-											<div class="img-box">
+				<section className="team">
+					<div className="container">
+						<div className="row">
+							<div className="col-md-10 col-md-offset-1">
+								<div className="col-lg-12">
+									<h6 className="description">OUR TEAM</h6>
+									<div className="row pt-md">
+										<div className="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+											<div className="img-box">
 												<img
 													src={Bill_Marriot}
 													alt=""
 													style={{ width: 210, height: 210 }}
-													class="img-responsive"
+													className="img-responsive"
 												/>
 											</div>
 											<h1>Bill Marriott</h1>
@@ -62,13 +30,13 @@ class Artists extends Component {
 											<p>I started this company from nothing.</p>
 										</div>
 
-										<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-											<div class="img-box">
+										<div className="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+											<div className="img-box">
 												<img
 													src={Russell}
 													alt=""
 													style={{ width: 210, height: 210 }}
-													class="img-responsive"
+													className="img-responsive"
 												/>
 											</div>
 											<h1>Russell Carter</h1>
@@ -76,13 +44,13 @@ class Artists extends Component {
 											<p>With great power comes great responsibility.</p>
 										</div>
 
-										<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-											<div class="img-box">
+										<div className="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+											<div className="img-box">
 												<img
 													src={Seth}
 													alt=""
 													style={{ width: 210, height: 210 }}
-													class="img-responsive"
+													className="img-responsive"
 												/>
 											</div>
 											<h1>Seth Vinson</h1>
@@ -90,13 +58,13 @@ class Artists extends Component {
 											<p>I'm just tryna pass lol.</p>
 										</div>
 
-										<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-											<div class="img-box">
+										<div className="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+											<div className="img-box">
 												<img
 													src={Lester}
 													alt=""
 													style={{ width: 210, height: 210 }}
-													class="img-responsive"
+													className="img-responsive"
 												/>
 											</div>
 											<h1>Lester Docker</h1>
@@ -109,16 +77,8 @@ class Artists extends Component {
 						</div>
 					</div>
 				</section>
-
-				<section>
-					{data.map(artist => (
-						<li>
-							{artist.Fname} {artist.Lname} ⭐ {artist.Artist_rating}
-						</li>
-					))}
-				</section>
 			</main>
 		);
 	}
 }
-export default Artists;
+export default About;

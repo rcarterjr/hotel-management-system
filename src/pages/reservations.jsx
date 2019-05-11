@@ -1258,7 +1258,11 @@ export default class BookOnline extends Component {
 										onChange={this.handleChange}
 									/>
 								</div>
-								{/* <div className="form-group">
+								{/*
+								We removed this and now set the state of
+								hotelID as a random int for security
+								~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+								<div className="form-group">
 									<input
 										type="text"
 										name="hotelID"
