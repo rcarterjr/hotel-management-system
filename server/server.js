@@ -110,7 +110,6 @@ app.get('/gethotelprice', (req, res) => {
 
 // Update hotel price
 app.patch('/updatehotelprice/:id', (req, res) => {
-    let newHotelPrice = 'Updated HotelPrice'
     let hotelPriceUpdate = {
         hotelName: req.body.hotelName,
         hotelID: req.body.hotelID,
@@ -163,7 +162,6 @@ app.get('/getrooms', (req, res) => {
 })
 // Update rooms
 app.patch('/updaterooms/:id', (req, res) => {
-    //let newRooms = 'Updated Rooms'
     let roomsUpdate = {
         roomNumber: req.body.roomNumber,
         hotelName: req.body.hotelName,
@@ -171,7 +169,7 @@ app.patch('/updaterooms/:id', (req, res) => {
         price: req.body.price,
     }
     let sql = `UPDATE Rooms SET ? WHERE roomNumber = ?`
-    db.query(sql, [req.body, req.body.roomNumber], (err, result) => {
+    db.query(sql, [roomsUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'Rooms Updated' })
@@ -215,14 +213,13 @@ app.get('/getroomtype', (req, res) => {
 
 // Update room type
 app.patch('/updateroomtype/:id', (req, res) => {
-    let newRoomType = 'Updated Room Type'
     let roomTypeUpdate = {
         typeOfRoom: req.body.typeOfRoom,
         roomNumber: req.body.roomNumber,
         vacancy: req.body.vacancy,
     }
     let sql = `UPDATE RoomType SET ? WHERE typeOfRoom = ?`
-    db.query(sql, [req.body, req.body.typeOfRoom], (err, result) => {
+    db.query(sql, [roomTypeUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'RoomType Updated' })
@@ -270,7 +267,7 @@ app.patch('/updatefitnesscenter/:id', (req, res) => {
         machineName: req.body.machineName,
     }
     let sql = `UPDATE FitnessCenter SET ? WHERE machineID = ?`
-    db.query(sql, [req.body, req.params.id], (err, result) => {
+    db.query(sql, [newFitnessCenter, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'FitnessCenter updated' })
@@ -314,7 +311,6 @@ app.get('/getlocation', (req, res) => {
 
 // Update location
 app.patch('/updatelocation/:id', (req, res) => {
-    let newLocation = 'Updated Location'
     let locationUpdate = {
         hotelID: req.body.hotelID,
         state: req.body.state,
@@ -323,8 +319,7 @@ app.patch('/updatelocation/:id', (req, res) => {
     }
     let sql = `UPDATE Location SET ? WHERE hotelID = ?`
 
-    // ****try changing req.body to locationUpdate if not working****
-    db.query(sql, [req.body, req.body.hotelID], (err, result) => {
+    db.query(sql, [locationUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'Location Updated' })
@@ -365,14 +360,13 @@ app.get('/gethotelrating', (req, res) => {
 })
 // Update hotel rating
 app.patch('/updatehotelrating/:id', (req, res) => {
-    let newHotelRating = 'Updated HotelRating'
     let hotelRatingUpdate = {
         hotelName: req.body.hotelName,
         hotelID: req.body.hotelID,
         starRating: req.body.starRating,
     }
     let sql = `UPDATE HotelRating SET ? WHERE hotelName = ?`
-    db.query(sql, [req.body, req.body.hotelName], (err, result) => {
+    db.query(sql, [hotelRatingUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'HotelRating Updated' })
@@ -418,7 +412,6 @@ app.get('/getreservation', (req, res) => {
 })
 // Update reservations
 app.patch('/updatereservation/:id', (req, res) => {
-    let newReservation = 'Updated Customer'
     let reservationUpdate = {
         reservationID: req.body.reservationID,
         roomNumber: req.body.roomNumber,
@@ -428,7 +421,7 @@ app.patch('/updatereservation/:id', (req, res) => {
         madeBy: req.body.madeBy,
     }
     let sql = `UPDATE Reservation SET ? WHERE reservationID = ?`
-    db.query(sql, [req.body, req.params.id], (err, result) => {
+    db.query(sql, [reservationUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'Reservations Updated' })
@@ -472,14 +465,13 @@ app.get('/getstayduration', (req, res) => {
 })
 // Update stay duration
 app.patch('/updatestayduration/:id', (req, res) => {
-    let newStayDuration = 'Updated StayDuration'
     let stayDurationUpdate = {
         dayIn: req.body.dayIn,
         SSN: req.body.SSN,
         dayOut: req.body.dayOut,
     }
     let sql = `UPDATE StayDuration SET ? WHERE dayIn = ?`
-    db.query(sql, [req.body, req.body.dayIn], (err, result) => {
+    db.query(sql, [stayDurationUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'StayDuration Updated' })
@@ -528,7 +520,6 @@ app.get('/getcustomer', (req, res) => {
 })
 // Update customer
 app.patch('/updatecustomer/:id', (req, res) => {
-    let newCustomer = 'Updated Customer'
     let customerUpdate = {
         SSN: req.body.SSN,
         reservationID: req.body.reservationID,
@@ -542,7 +533,7 @@ app.patch('/updatecustomer/:id', (req, res) => {
         sex: req.body.sex,
     }
     let sql = `UPDATE Customer SET ? WHERE SSN = ?`
-    db.query(sql, [req.body, req.params.id], (err, result) => {
+    db.query(sql, [customerUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'Customer Updated' })
@@ -589,7 +580,7 @@ app.patch('/updateroomchange/:id', (req, res) => {
         roomNumber: req.body.roomNumber,
     }
     let sql = `UPDATE Customer SET ? WHERE reservationID = ?`
-    db.query(sql, [req.body, req.params.id], (err, result) => {
+    db.query(sql, [roomchangeUpdate, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'RoomChange Updated' })
@@ -641,7 +632,7 @@ app.patch('/updatehotelemployee/:id', (req, res) => {
         sex: req.body.sex,
     }
     let sql = `UPDATE HotelEmployee SET ? WHERE employeeID = ?`
-    db.query(sql, [req.body, req.body.employeeID], (err, result) => {
+    db.query(sql, [employee, req.body.employeeID], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'HotelEmployee Updated' })
@@ -740,7 +731,7 @@ app.patch('/updateroomservice/:id', (req, res) => {
         price: req.body.price,
     }
     let sql = `UPDATE RoomService SET ? WHERE menu = ?`
-    db.query(sql, [req.body, req.params.id], (err, result) => {
+    db.query(sql, [roomservice, req.params.id], (err, result) => {
         if (err) throw err
         console.log(result)
         res.status(200).json({ success: 'RoomService Updated' })
